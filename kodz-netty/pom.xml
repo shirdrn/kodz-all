@@ -17,5 +17,13 @@
   		<type>jar</type>
   		<scope>compile</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>io.netty</groupId>
+  		<artifactId>netty-all</artifactId>
+  		<version>4.0.0.Beta2</version>
+  		<type>jar</type>
+  		<classifier>sources</classifier>
+  		<scope>compile</scope>
+  	</dependency>
   </dependencies>
 </project>

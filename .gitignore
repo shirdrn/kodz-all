@@ -5,3 +5,8 @@
 *.war
 *.ear
 
+kodz-mina/src/main/java/org/shirdrn/kodz/inaction/mina/TinyClientProtocolHandler.java
+kodz-mina/src/main/java/org/shirdrn/kodz/inaction/mina/TinyMinaClient.java
+kodz-mina/src/main/java/org/shirdrn/kodz/inaction/mina/TinyMinaServer.java
+kodz-mina/src/main/java/org/shirdrn/kodz/inaction/mina/TinyServerProtocolHandler.java
+kodz-netty/src/main/java/org/shirdrn/kodz/inaction/netty
