@@ -7,36 +7,50 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TinyClientProtocolHandler extends IoHandlerAdapter {
-   
-     private final static Logger LOGGER = LoggerFactory.getLogger(TinyClientProtocolHandler.class);
-   
-    @Override
-    public void sessionCreated(IoSession session) {
-        LOGGER.info("CLIENT::CREATED");
-    }
 
-    @Override
-    public void sessionClosed(IoSession session) throws Exception {
-        LOGGER.info("CLIENT::CLOSED");
-    }
+	private final static Logger LOGGER = LoggerFactory
+			.getLogger(TinyClientProtocolHandler.class);
 
-    @Override
-    public void sessionOpened(IoSession session) throws Exception {
-        LOGGER.info("CLIENT::OPENED");
-    }
+	@Override
+	public void sessionCreated(IoSession session) {
+		LOGGER.info("Session created.");
+	}
 
-    @Override
-    public void sessionIdle(IoSession session, IdleStatus status) {
-        LOGGER.info("CLIENT::*** IDLE #" + session.getIdleCount(IdleStatus.BOTH_IDLE) + " ***");
-    }
+	@Override
+	public void sessionClosed(IoSession session) throws Exception {
+		LOGGER.info("Session closed.");
+	}
 
-    @Override
-    public void exceptionCaught(IoSession session, Throwable cause) {
-        LOGGER.info("CLIENT::EXCEPTIONCAUGHT");
-        cause.printStackTrace();
-    }
+	@Override
+	public void sessionOpened(IoSession session) throws Exception {
+		LOGGER.info("Session opened.");
+	}
 
-    public void messageSent(IoSession session, Object message) throws Exception {
-         LOGGER.info("CLIENT::MESSAGESENT: " + message);
-    }
+	@Override
+	public void sessionIdle(IoSession session, IdleStatus status) {
+		LOGGER.info("*** IDLE #"
+				+ session.getIdleCount(IdleStatus.BOTH_IDLE) + " ***");
+	}
+
+	@Override
+	public void exceptionCaught(IoSession session, Throwable cause) {
+		LOGGER.info("Exception caught", cause);
+		session.close(true);
+	}
+
+	public void messageSent(IoSession session, Object message) throws Exception {
+		LOGGER.info("Message sent: " + message);
+	}
+
+	@Override
+	public void messageReceived(IoSession session, Object message)
+			throws Exception {
+		String m = (String) message;
+		LOGGER.info("Receive response: " + m);
+		if (m.equals("OK")) {
+			LOGGER.info("Finished, try to close session...");
+			session.close(true);
+			LOGGER.info("Done!");
+		}
+	}
 }

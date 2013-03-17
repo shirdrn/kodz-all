@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 public class TinyMinaServer {
     
      private final static Logger LOG = LoggerFactory.getLogger(TinyMinaServer.class);
-    /** Choose your favorite port number. */
     private static final int PORT = 8080;
 
     public static void main(String[] args) throws Exception {
@@ -28,10 +27,9 @@ public class TinyMinaServer {
         LOG.info("Server started!");
        
         for (;;) {
-            LOG.info(
-                      "R: " + acceptor.getStatistics().getReadBytesThroughput() +
+            LOG.info("R: " + acceptor.getStatistics().getReadBytesThroughput() +
                       ", W: " + acceptor.getStatistics().getWrittenBytesThroughput());
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         }
        
     }

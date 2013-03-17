@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 public class TinyMinaClient {
 
      private final static Logger LOG = LoggerFactory.getLogger(TinyMinaClient.class);
-     /** Choose your favorite port number. */
      private static final int PORT = 8080;
 
      public static void main(String[] args) throws Exception {
