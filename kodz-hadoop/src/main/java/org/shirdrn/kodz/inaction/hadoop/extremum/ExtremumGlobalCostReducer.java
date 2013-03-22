@@ -25,8 +25,8 @@ public class ExtremumGlobalCostReducer extends
 				min = current.get();
 			}
 		}
-		Extremum extremun = new Extremum(min, max);
-		context.write(key, extremun);
+		Extremum extremum = new Extremum(min, max);
+		context.write(key, extremum);
 	}
 
 }

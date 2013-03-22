@@ -18,7 +18,7 @@ public class ExtremumCostDriver {
 		Configuration conf = new Configuration();
 	    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 	    if (otherArgs.length != 2) {
-	      System.err.println("Usage: maxcost <in> <out>");
+	      System.err.println("Usage: extremumcost <in> <out>");
 	      System.exit(2);
 	    }
 	    
@@ -26,13 +26,15 @@ public class ExtremumCostDriver {
 	    
 	    job.setJarByClass(ExtremumCostDriver.class);
 	    job.setMapperClass(ExtremunGlobalCostMapper.class);
-	    job.setCombinerClass(ExtremumGlobalCostReducer.class);
 	    job.setReducerClass(ExtremumGlobalCostReducer.class);
 	    
 	    job.setMapOutputKeyClass(Text.class);
 	    job.setMapOutputValueClass(LongWritable.class);
 	    job.setOutputKeyClass(Text.class);
 	    job.setOutputValueClass(Extremum.class);
+	    job.setOutputFormatClass(ExtremumOutputFormat.class);
+	    
+	    job.setNumReduceTasks(2);
 	    
 	    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
 	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));

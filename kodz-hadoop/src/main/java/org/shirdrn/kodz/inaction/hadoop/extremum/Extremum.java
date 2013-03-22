@@ -26,14 +26,14 @@ public class Extremum implements Writable {
 	
 	@Override
 	public void readFields(DataInput in) throws IOException {
-		this.minValue = new LongWritable(in.readLong());
-		this.maxValue = new LongWritable(in.readLong());
+		minValue.readFields(in);
+		maxValue.readFields(in);
 	}
 
 	@Override
 	public void write(DataOutput out) throws IOException {
-		out.writeLong(minValue.get());
-		out.writeLong(maxValue.get());
+		minValue.write(out);
+		maxValue.write(out);
 	}
 
 	public LongWritable getMaxValue() {

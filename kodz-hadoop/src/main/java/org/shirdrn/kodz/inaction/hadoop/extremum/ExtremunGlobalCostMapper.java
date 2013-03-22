@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 public class ExtremunGlobalCostMapper extends
 		Mapper<LongWritable, Text, Text, LongWritable> {
 
-	private final static LongWritable one = new LongWritable(1);
+	private LongWritable costValue = new LongWritable(1);
     private Text code = new Text();
     
 	@Override
@@ -29,8 +29,8 @@ public class ExtremunGlobalCostMapper extends
 			}
 			if(cost != 0) {
 				code.set(countryCode);
-				one.set(cost);
-				context.write(code, one);
+				costValue.set(cost);
+				context.write(code, costValue);
 			}
 		}
 	}

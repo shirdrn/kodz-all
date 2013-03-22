@@ -23,12 +23,15 @@ public class GlobalMaxCostDriver {
 		    }
 		    
 		    Job job = new Job(conf, "max cost");
+		    
 		    job.setJarByClass(GlobalMaxCostDriver.class);
 		    job.setMapperClass(GlobalCostMapper.class);
 		    job.setCombinerClass(GlobalCostReducer.class);
 		    job.setReducerClass(GlobalCostReducer.class);
+		    
 		    job.setOutputKeyClass(Text.class);
 		    job.setOutputValueClass(LongWritable.class);
+		    
 		    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
 		    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
 		    
