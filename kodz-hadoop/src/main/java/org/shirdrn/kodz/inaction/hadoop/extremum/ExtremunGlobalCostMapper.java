@@ -6,7 +6,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class GlobalCostMapper extends
+public class ExtremunGlobalCostMapper extends
 		Mapper<LongWritable, Text, Text, LongWritable> {
 
 	private final static LongWritable one = new LongWritable(1);
@@ -29,6 +29,7 @@ public class GlobalCostMapper extends
 			}
 			if(cost != 0) {
 				code.set(countryCode);
+				one.set(cost);
 				context.write(code, one);
 			}
 		}

@@ -1,0 +1,5 @@
+shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes$ jar -cvf global-extremum-cost.jar -C ./ org
+scp shirdrn@172.0.8.212:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes/global-extremum-cost.jar ./xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/data_10m /user/xiaoxiang/datasets/cost/
+
+
+

@@ -1,4 +1,4 @@
-package org.shirdrn.kodz.inaction.hadoop.extremum;
+package org.shirdrn.kodz.inaction.hadoop.extremum.max;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -7,7 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class MaxGlobalCostReducer extends
+public class GlobalCostReducer extends
 		Reducer<Text, LongWritable, Text, LongWritable> {
 
 	@Override
