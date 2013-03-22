@@ -9,5 +9,6 @@
   	<module>kodz-mina</module>
   	<module>kodz-netty</module>
   	<module>kodz-disruptor</module>
+  	<module>kodz-hadoop</module>
   </modules>
 </project>
