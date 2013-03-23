@@ -12,3 +12,8 @@ kodz-mina/src/main/java/org/shirdrn/kodz/inaction/mina/TinyServerProtocolHandler
 kodz-netty/src/main/java/org/shirdrn/kodz/inaction/netty
 kodz-hadoop
 kodz-hadoop
+kodz-hadoop
+kodz-hadoop
+
+kodz-hadoop/src/main/java
+kodz-hadoop/src
