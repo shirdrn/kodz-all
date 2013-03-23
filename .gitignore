@@ -25,3 +25,17 @@ kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/Co
 kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileMapper.java
 kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileRecordReader.java
 kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfiles.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole
+
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileInputFormat.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileInputFormat.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileMapper.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfileRecordReader.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/CombineSmallfiles.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole/WholeCombinedSmallfiles.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole/WholeFileInputFormat.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole/WholeFileRecordReader.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole/WholeSmallfilesMapper.java
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/combine/README
+kodz-hadoop/src/main/java/org/shirdrn/kodz/inaction/hadoop/smallfiles/whole/README
