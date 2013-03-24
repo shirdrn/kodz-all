@@ -3,4 +3,7 @@
 # Package Files #
 *.jar
 *.war
-*.ear
+*.earkodz-netty/target
+kodz-mina/target
+kodz-hadoop/target
+kodz-disruptor/target
