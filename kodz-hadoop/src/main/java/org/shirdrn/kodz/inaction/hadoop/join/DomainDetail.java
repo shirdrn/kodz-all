@@ -4,7 +4,6 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
@@ -12,24 +11,26 @@ public class DomainDetail implements Writable {
 
 	private Text domain;
 	private Text ipAddress;
-	private IntWritable organizationId;
 	private Text organization;
-	private JoinSide joinSide;
 	
+	public DomainDetail(Text domain, Text ipAddress, Text organization) {
+		super();
+		this.domain = domain;
+		this.ipAddress = ipAddress;
+		this.organization = organization;
+	}
+
 	public DomainDetail() {
 		super();
 		this.domain = new Text();
 		this.ipAddress = new Text();
-		this.organizationId = new IntWritable();
 		this.organization = new Text();
-		this.joinSide = JoinSide.LEFT;
 	}
 	
 	@Override
 	public void readFields(DataInput in) throws IOException {
 		domain.readFields(in);
 		ipAddress.readFields(in);
-		organizationId.readFields(in);
 		organization.readFields(in);
 
 	}
@@ -38,7 +39,6 @@ public class DomainDetail implements Writable {
 	public void write(DataOutput out) throws IOException {
 		domain.write(out);
 		ipAddress.write(out);
-		organizationId.write(out);
 		organization.write(out);
 	}
 	
@@ -58,28 +58,12 @@ public class DomainDetail implements Writable {
 		this.ipAddress = ipAddress;
 	}
 
-	public IntWritable getOrganizationId() {
-		return organizationId;
-	}
-
-	public void setOrganizationId(IntWritable organizationId) {
-		this.organizationId = organizationId;
-	}
-
 	public Text getOrganization() {
 		return organization;
 	}
 
 	public void setOrganization(Text organization) {
 		this.organization = organization;
-	}
-
-	public JoinSide getJoinSide() {
-		return joinSide;
-	}
-
-	public void setJoinSide(JoinSide joinSide) {
-		this.joinSide = joinSide;
 	}
 
 	@Override
@@ -91,8 +75,7 @@ public class DomainDetail implements Writable {
 		if(ipAddress != null) {
 			builder.append(ipAddress.toString()).append("\t");
 		}
-		builder.append(organizationId.get()).append("\t");
-		if(organizationId != null) {
+		if(organization != null) {
 			builder.append(organization.toString());
 		}
 		return builder.toString();
