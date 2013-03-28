@@ -3,7 +3,8 @@ package org.shirdrn.kodz.inaction.hadoop.join.reduceside;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.apache.hadoop.io.IntWritable;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.shirdrn.kodz.inaction.hadoop.join.DomainDetail;
@@ -11,11 +12,16 @@ import org.shirdrn.kodz.inaction.hadoop.join.DomainDetail;
 public class JoinDomainOrganizationReducer extends
 		Reducer<OrganizationIdCompositeKey, Text, OrganizationIdCompositeKey, DomainDetail> {
 
+	private static final Log LOG = LogFactory.getLog(JoinDomainOrganizationReducer.class);
+	
 	@Override
 	protected void reduce(OrganizationIdCompositeKey key, Iterable<Text> values, Context context)
 			throws IOException, InterruptedException {
 		Iterator<Text> iter = values.iterator();
-		Text organization = iter.next();
+		// MUST copy first element!!!
+		// WRONG usage: Text organization = iter.next();
+		Text organization = new Text(iter.next());
+		LOG.info("Organization=" + organization);
 		while(iter.hasNext()) {
 			Text value = iter.next();
 			String[] fields = value.toString().split("\t");
@@ -26,7 +32,6 @@ public class JoinDomainOrganizationReducer extends
 				detail.setDomain(new Text(domain));
 				detail.setIpAddress(new Text(ip));
 				detail.setOrganization(organization);
-//				IntWritable orgId = new IntWritable(key.getOrganizationId().get());
 				context.write(key, detail);
 			}
 		}

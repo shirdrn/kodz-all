@@ -3,7 +3,6 @@ package org.shirdrn.kodz.inaction.hadoop.join.reduceside;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
@@ -11,7 +10,6 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.shirdrn.kodz.inaction.hadoop.common.DefaultReducer;
 import org.shirdrn.kodz.inaction.hadoop.join.DomainDetail;
 
 public class RecudeSideJoinDriver extends Configured implements Tool {
@@ -39,7 +37,7 @@ public class RecudeSideJoinDriver extends Configured implements Tool {
 		job.setOutputKeyClass(OrganizationIdCompositeKey.class);
 		job.setOutputValueClass(DomainDetail.class);
 	    
-		job.setReducerClass(DefaultReducer.class);
+		job.setReducerClass(JoinDomainOrganizationReducer.class);
 		job.setNumReduceTasks(10);
 		
 		return job.waitForCompletion(true) ? 0 : 1;
