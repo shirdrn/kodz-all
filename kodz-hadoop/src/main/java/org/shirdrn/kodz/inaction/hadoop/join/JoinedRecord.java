@@ -23,6 +23,14 @@ public class JoinedRecord implements Writable {
 		this.organization = new Text();
 	}
 	
+	public JoinedRecord(JoinedRecord record) {
+		this();
+		this.domain = new Text(record.getDomain().toString());
+		this.ipAddress = new Text(record.getIpAddress().toString());
+		this.organizationId = new IntWritable(record.getOrganizationId().get());
+		this.organization = new Text(record.getOrganization().toString());
+	}
+
 	@Override
 	public void readFields(DataInput in) throws IOException {
 		domain.readFields(in);

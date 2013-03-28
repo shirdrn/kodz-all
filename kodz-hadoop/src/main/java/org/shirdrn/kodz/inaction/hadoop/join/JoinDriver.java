@@ -21,7 +21,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.shirdrn.kodz.inaction.hadoop.common.DefaultReducer;
 
 public class JoinDriver extends Configured implements Tool {
 
@@ -39,22 +38,22 @@ public class JoinDriver extends Configured implements Tool {
 			String[] fields = line.split("\t");
 			FlaggedKey flaggedKey = null;
 			JoinedRecord record = new JoinedRecord();
-			if(fields.length == 5) {
+			if(fields.length == 2) {
+				int orgId = Integer.parseInt(fields[0]);
+				// set flag to 0
+				flaggedKey = new FlaggedKey(new IntWritable(orgId), new IntWritable(0));
+				record.setOrganizationId(new IntWritable(orgId));
+				record.setOrganization(new Text(fields[1]));
+			} else if(fields.length == 5) {
 				String domain = fields[0];
 				String ip = fields[2];
-				int id = Integer.parseInt(fields[3]);
-				// set flag to 0
-				flaggedKey = new FlaggedKey(new IntWritable(id), new IntWritable(0));
+				int orgId = Integer.parseInt(fields[3]);
+				// set flag to 1
+				flaggedKey = new FlaggedKey(new IntWritable(orgId), new IntWritable(1));
 				record.setDomain(new Text(domain));
 				record.setIpAddress(new Text(ip));
-				record.setOrganizationId(new IntWritable(id));
-			} else if(fields.length == 2) {
-				int id = Integer.parseInt(fields[0]);
-				// set flag to 1
-				flaggedKey = new FlaggedKey(new IntWritable(id), new IntWritable(1));
-				record.setOrganizationId(new IntWritable(id));
-				record.setOrganization(new Text(fields[1]));
-			}
+				record.setOrganizationId(new IntWritable(orgId));
+			} 
 			if(fields.length == 5 || fields.length == 2) {
 				context.write(flaggedKey, record);
 			}
@@ -75,8 +74,9 @@ public class JoinDriver extends Configured implements Tool {
 			LOG.info("ORGANIZATION=" + organization);
 			while(iter.hasNext()) {
 				JoinedRecord value = iter.next();
-				value.setOrganization(organization);
-				context.write(key, value);
+				JoinedRecord record = new JoinedRecord(value);
+				record.setOrganization(organization);
+				context.write(key, record);
 			}
 		}
 
@@ -134,7 +134,7 @@ public class JoinDriver extends Configured implements Tool {
 		
 		job.setJarByClass(JoinDriver.class);
 		job.setMapperClass(JoinMapper.class);
-		job.setReducerClass(DefaultReducer.class);
+		job.setReducerClass(JoinReducer.class);
 		
 		job.setMapOutputKeyClass(FlaggedKey.class);
 		job.setMapOutputValueClass(JoinedRecord.class);
