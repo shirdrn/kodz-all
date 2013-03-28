@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.WritableComparable;
-import org.shirdrn.kodz.inaction.hadoop.join.JoinSide;
 
 public class OrganizationIdCompositeKey implements WritableComparable<OrganizationIdCompositeKey> {
 

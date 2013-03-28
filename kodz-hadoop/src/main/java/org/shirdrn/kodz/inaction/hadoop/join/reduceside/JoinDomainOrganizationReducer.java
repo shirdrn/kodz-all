@@ -7,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.shirdrn.kodz.inaction.hadoop.join.DomainDetail;
 
 public class JoinDomainOrganizationReducer extends
 		Reducer<OrganizationIdCompositeKey, Text, OrganizationIdCompositeKey, DomainDetail> {

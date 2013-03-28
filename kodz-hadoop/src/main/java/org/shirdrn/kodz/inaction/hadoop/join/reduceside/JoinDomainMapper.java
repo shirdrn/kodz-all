@@ -6,7 +6,6 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.shirdrn.kodz.inaction.hadoop.join.JoinSide;
 
 public class JoinDomainMapper extends
 		Mapper<LongWritable, Text, OrganizationIdCompositeKey, Text> {

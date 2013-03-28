@@ -10,7 +10,6 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.shirdrn.kodz.inaction.hadoop.join.DomainDetail;
 
 public class RecudeSideJoinDriver extends Configured implements Tool {
 
