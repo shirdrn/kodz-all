@@ -11,13 +11,13 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-public class RecudeSideJoinDriver extends Configured implements Tool {
+public class ReduceSideJoinDriver extends Configured implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
 		Configuration conf = new Configuration();
 		Job job = new Job(conf, "reduce-side join");
-		job.setJarByClass(RecudeSideJoinDriver.class);
+		job.setJarByClass(ReduceSideJoinDriver.class);
 		
 		Path domainIn = new Path(args[0].trim());
 		Path organizationIn = new Path(args[1].trim());
@@ -43,7 +43,7 @@ public class RecudeSideJoinDriver extends Configured implements Tool {
 	}
 
 	public static void main(String[] args) throws Exception {
-		int exitCode = ToolRunner.run(new RecudeSideJoinDriver(), args);
+		int exitCode = ToolRunner.run(new ReduceSideJoinDriver(), args);
 		System.exit(exitCode);
 	}
 
