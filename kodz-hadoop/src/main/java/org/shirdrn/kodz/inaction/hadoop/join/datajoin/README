@@ -1,0 +1,12 @@
+xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/datasets/join
+-rw-r--r--   3 xiaoxiang supergroup  391103029 2013-03-26 23:10 /user/xiaoxiang/datasets/join/irc_basic_info.ds
+-rw-r--r--   3 xiaoxiang supergroup    8335235 2013-03-26 23:10 /user/xiaoxiang/datasets/join/irc_org_info.ds
+
+
+COPY file 'hadoop-datajoin-1.0.3.jar' to HDFS:
+xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/libraries
+xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal ./contrib/datajoin/hadoop-datajoin-1.0.3.jar /user/xiaoxiang/libraries
+
+
+xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar datajoin-join.jar org.shirdrn.kodz.inaction.hadoop.join.datajoin.DataJoinDriver /user/xiaoxiang/datasets/join /user/xiaoxiang/output/join/datajoin  /user/xiaoxiang/libraries/hadoop-datajoin-1.0.3.jar
+
