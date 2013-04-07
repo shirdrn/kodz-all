@@ -10,5 +10,6 @@
   	<module>kodz-netty</module>
   	<module>kodz-disruptor</module>
   	<module>kodz-hadoop</module>
+  	<module>kodz-mahout</module>
   </modules>
 </project>
