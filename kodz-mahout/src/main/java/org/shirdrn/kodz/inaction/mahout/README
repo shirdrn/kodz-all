@@ -1,0 +1,17 @@
+GenerateItemVectorMapper => GenerateItemVectorReducer
+||
+\/
+ItemColumnVectorWrapperMapper
+
+
+GenerateUserVectorMapper => GenerateUserVectorReducer
+||
+\/
+ItemToUserInUserColumnVectorMapper
+
+GenerateVectorAndPrefReducer
+||
+\/
+ItemRowVectorToUsersMapper
+||
+\/

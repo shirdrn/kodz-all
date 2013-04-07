@@ -21,7 +21,7 @@ public class GenerateItemVectorReducer extends
 			int index = (int) itemId.get();
 			itemVector.set(index, itemVector.get(index) + 1.0);
 		}
-		// OUTPUT=> <itemId(i), [count(itemId1), count(itemId2), ..., count(itemIdn)]>
+		// OUTPUT=> <itemId(i), [count(itemId(1)), count(itemId(2)), ..., count(itemId(n))]>
 		context.write(thisItemId, new VectorWritable(itemVector));
 	}
 

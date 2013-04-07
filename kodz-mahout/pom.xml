@@ -12,9 +12,25 @@
   <dependencies>
   	<dependency>
   		<groupId>org.apache.mahout</groupId>
-  		<artifactId>mahout-distribution</artifactId>
-  		<version>0.8-SNAPSHOT</version>
+  		<artifactId>mahout-core</artifactId>
+  		<version>0.7</version>
   		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.mahout</groupId>
+  		<artifactId>mahout-core</artifactId>
+  		<version>0.7</version>
+  		<type>jar</type>
+  		<classifier>sources</classifier>
+  		<scope>compile</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.apache.mahout</groupId>
+  		<artifactId>mahout-math</artifactId>
+  		<version>0.7</version>
+  		<type>jar</type>
+  		<classifier>sources</classifier>
   		<scope>compile</scope>
   	</dependency>
   </dependencies>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.mahout.cf.taste.hadoop.item.ToVectorAndPrefReducer;
 import org.apache.mahout.cf.taste.hadoop.item.VectorAndPrefsWritable;
 import org.apache.mahout.cf.taste.hadoop.item.VectorOrPrefWritable;
 import org.apache.mahout.math.VarIntWritable;

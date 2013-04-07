@@ -13,9 +13,9 @@ public class ItemColumnVectorWrapperMapper extends
 	@Override
 	protected void map(IntWritable key, VectorWritable value, Context context)
 			throws IOException, InterruptedException {
-		// INPUT=> <ItemId, [itemId(1):pref, itemId(2):pref, ...,itemId(n):pref]>
+		// INPUT=> <ItemId(i), [itemId(1):pref, itemId(2):pref, ...,itemId(n):pref]>
 		VectorOrPrefWritable wrapped = new VectorOrPrefWritable(value.get());
-		// INPUT=> <ItemId, Vector[itemId(1):pref, itemId(2):pref, ...,itemId(n):pref]>
+		// INPUT=> <ItemId(i), Vector[itemId(1):pref, itemId(2):pref, ...,itemId(n):pref]>
 		context.write(key, wrapped);
 	}
 
