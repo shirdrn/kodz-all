@@ -1,1 +1,16 @@
-Failed to acquire lock for git repository.
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.shirdrn</groupId>
+  <artifactId>kodz-all</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Kodz-all</name>
+  <modules>
+  	<module>kodz-mina</module>
+  	<module>kodz-netty</module>
+  	<module>kodz-disruptor</module>
+  	<module>kodz-hadoop</module>
+  	<module>kodz-dm</module>
+  	<module>kodz-mahout</module>
+  </modules>
+</project>
