@@ -10,3 +10,4 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal .
 
 xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar datajoin-join.jar org.shirdrn.kodz.inaction.hadoop.join.datajoin.DataJoinDriver /user/xiaoxiang/datasets/join /user/xiaoxiang/output/join/datajoin  /user/xiaoxiang/libraries/hadoop-datajoin-1.0.3.jar
 
+WARN: waiting to debug and test....

@@ -71,13 +71,14 @@ public class DataJoinDriver extends Configured implements Tool {
 				TaggedMapOutput value = (TaggedMapOutput) values[i];
 				// a record line
 				String line = value.getData().toString();
-				String[] fields = line.split("\t");
+				String[] fields = line.split("\\t");
 				if(fields.length == 5) {
 					joinedRecord.append(fields[0]).append("\t"); // domain
 					joinedRecord.append(fields[2]); // ip address
 				}
 			}
 			TaggedMapOutput output = new TaggedDomainMapOutput(new Text(joinedRecord.toString()));
+			output.setTag((Text) tags[0]);
 			return output;
 		}
 		
@@ -104,7 +105,8 @@ public class DataJoinDriver extends Configured implements Tool {
 		job.setReducerClass(DomainOrgReducer.class);
 		job.setNumReduceTasks(10);
 		
-		// add contrib/hadoop-datajoin-.jar
+		// first, copy 'contrib/datajoin/hadoop-datajoin-*.jar' to HDFS
+		// then, add contrib/hadoop-datajoin-.jar to DistributedCache
 		Path jarPath = new Path(args[2].trim());
 		FileSystem fs = jarPath.getFileSystem(conf);
 		DistributedCache.addArchiveToClassPath(jarPath, conf, fs);
