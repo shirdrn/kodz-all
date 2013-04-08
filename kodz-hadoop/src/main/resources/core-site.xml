@@ -12,7 +12,7 @@
 	</property>
         <property>
 		<name>hadoop.tmp.dir</name>
-                <value>/opt/comodo/cloud/storage/tmp/hadoop-${user.name}</value>
+                <value>/opt/stone/cloud/storage/tmp/hadoop-${user.name}</value>
 		<description></description>
 	</property>
 </configuration>

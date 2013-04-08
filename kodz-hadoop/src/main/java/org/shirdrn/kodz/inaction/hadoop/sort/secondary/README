@@ -1,9 +1,9 @@
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/datasets/sorter
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/datasets/sorter
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 15:48 /user/xiaoxiang/datasets/sorter/source
 -rw-r--r--   3 xiaoxiang supergroup  448888217 2013-03-25 15:47 /user/xiaoxiang/datasets/sorter/source/data_10m
 -rw-r--r--   3 xiaoxiang supergroup 2244444143 2013-03-25 15:48 /user/xiaoxiang/datasets/sorter/source/data_50m
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar secondary-sort.jar org.shirdrn.kodz.inaction.hadoop.sort.secondary.SecondarySorter /user/xiaoxiang/datasets/sorter/source /user/xiaoxiang/output/sorter/secondary
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar secondary-sort.jar org.shirdrn.kodz.inaction.hadoop.sort.secondary.SecondarySorter /user/xiaoxiang/datasets/sorter/source /user/xiaoxiang/output/sorter/secondary
 13/03/25 22:51:45 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
 13/03/25 22:51:45 INFO input.FileInputFormat: Total input paths to process : 2
 13/03/25 22:51:45 INFO util.NativeCodeLoader: Loaded the native-hadoop library
@@ -192,7 +192,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar secondary-sort.
 13/03/25 23:06:29 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=27304878080
 13/03/25 23:06:29 INFO mapred.JobClient:     Map output records=60000000
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/sorter/secondary
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/sorter/secondary
 -rw-r--r--   3 xiaoxiang supergroup          0 2013-03-25 23:06 /user/xiaoxiang/output/sorter/secondary/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 22:51 /user/xiaoxiang/output/sorter/secondary/_logs
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 22:51 /user/xiaoxiang/output/sorter/secondary/_logs/history
@@ -208,21 +208,21 @@ drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 22:51 /user/xiaoxiang/
 -rw-r--r--   3 xiaoxiang supergroup  230865773 2013-03-25 23:04 /user/xiaoxiang/output/sorter/secondary/part-r-00007
 -rw-r--r--   3 xiaoxiang supergroup  318948854 2013-03-25 23:05 /user/xiaoxiang/output/sorter/secondary/part-r-00008
 -rw-r--r--   3 xiaoxiang supergroup  252817679 2013-03-25 23:05 /user/xiaoxiang/output/sorter/secondary/part-r-00009
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00000 | head -3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00000 | head -3
 AT	999999909	253655669181935	253655669213558
 AT	999992531	253634301280494	253634301312117
 AT	999991621	253566594384346	253566594415969
 text: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00000 | tail -3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00000 | tail -3
 VI	20113	253635978738984	253635978739126
 VI	7747	253604352372781	253604352372869
 VI	895	253665845317214	253665845317244
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00009 | head -3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00009 | head -3
 AI	999995707	253596094966778	253596094998401
 AI	999994648	253635957099030	253635957130653
 AI	999992756	253613204071946	253613204103569
 text: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00009 | tail -3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/secondary/part-r-00009 | tail -3
 YE	11900	253637870486482	253637870486591
 YE	8038	253666597103854	253666597103944
 YE	3291	253655006291663	253655006291720

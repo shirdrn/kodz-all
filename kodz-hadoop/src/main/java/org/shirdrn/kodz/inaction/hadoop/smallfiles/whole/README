@@ -1,10 +1,10 @@
 jar -cvf combine-smallfiles.jar -C ./ org/shirdrn/kodz/inaction/hadoop/smallfiles
 
-xiaoxiang@ubuntu3:~$ cd /opt/comodo/cloud/hadoop-1.0.3
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/smallfiles
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/smallfiles/* /user/xiaoxiang/datasets/smallfiles
+xiaoxiang@ubuntu3:~$ cd /opt/stone/cloud/hadoop-1.0.3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/smallfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/smallfiles/* /user/xiaoxiang/datasets/smallfiles
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfiles.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.whole.WholeCombinedSmallfiles /user/xiaoxiang/datasets/smallfiles /user/xiaoxiang/output/smallfiles/whole
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfiles.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.whole.WholeCombinedSmallfiles /user/xiaoxiang/datasets/smallfiles /user/xiaoxiang/output/smallfiles/whole
 13/03/23 14:09:24 INFO input.FileInputFormat: Total input paths to process : 117
 13/03/23 14:09:24 INFO mapred.JobClient: Running job: job_201303111631_0016
 13/03/23 14:09:25 INFO mapred.JobClient:  map 0% reduce 0%
@@ -113,7 +113,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfi
 13/03/23 14:16:03 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=65064620032
 13/03/23 14:16:03 INFO mapred.JobClient:     Map output records=117
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/whole
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/whole
 Found 7 items
 -rw-r--r--   3 xiaoxiang supergroup          0 2013-03-23 14:15 /user/xiaoxiang/output/smallfiles/whole/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-23 14:09 /user/xiaoxiang/output/smallfiles/whole/_logs
@@ -123,7 +123,7 @@ drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-23 14:09 /user/xiaoxiang/
 -rw-r--r--   3 xiaoxiang supergroup   30161567 2013-03-23 14:15 /user/xiaoxiang/output/smallfiles/whole/part-r-00003
 -rw-r--r--   3 xiaoxiang supergroup   28904089 2013-03-23 14:15 /user/xiaoxiang/output/smallfiles/whole/part-r-00004
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/whole/part-r-00000 | cut -d" " -f 1 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/whole/part-r-00000 | cut -d" " -f 1 
 data_50000_000	53
 data_50000_005	4c
 data_50000_014	47

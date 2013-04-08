@@ -1,10 +1,10 @@
 jar -cvf combine-smallfiles.jar -C ./ org/shirdrn/kodz/inaction/hadoop/smallfiles
 
-xiaoxiang@ubuntu3:~$ cd /opt/comodo/cloud/hadoop-1.0.3
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/smallfiles
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/smallfiles/* /user/xiaoxiang/datasets/smallfiles
+xiaoxiang@ubuntu3:~$ cd /opt/stone/cloud/hadoop-1.0.3
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/smallfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/smallfiles/* /user/xiaoxiang/datasets/smallfiles
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfiles.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.combine.CombineSmallfiles /user/xiaoxiang/datasets/smallfiles /user/xiaoxiang/output/smallfiles/combine
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfiles.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.combine.CombineSmallfiles /user/xiaoxiang/datasets/smallfiles /user/xiaoxiang/output/smallfiles/combine
 13/03/23 21:52:09 INFO input.FileInputFormat: Total input paths to process : 117
 13/03/23 21:52:09 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/23 21:52:09 WARN snappy.LoadSnappy: Snappy native library not loaded
@@ -56,7 +56,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar combine-smallfi
 13/03/23 21:53:37 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=3257425920
 13/03/23 21:53:37 INFO mapred.JobClient:     Map output records=3510000
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/combine/
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/combine/
 Found 7 items
 -rw-r--r--   3 xiaoxiang supergroup          0 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-23 21:52 /user/xiaoxiang/output/smallfiles/combine/_logs
@@ -67,13 +67,13 @@ drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-23 21:52 /user/xiaoxiang/
 -rw-r--r--   3 xiaoxiang supergroup   46690079 2013-03-23 21:53 /user/xiaoxiang/output/smallfiles/combine/part-r-00004
 
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | head -5
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | head -5
 data_50000_000	44 4a 20 32 31 34 34 30 30 39 39 38 37 32 31 36 20 32 31 34 34 30 31 30 30 30 32 30 39 37 20 32 32 31 34 35 32 31 34 35
 data_50000_000	44 45 20 32 31 34 34 30 30 39 39 38 37 37 33 32 20 32 31 34 34 30 31 30 30 30 31 32 34 31 20 31 38 32 34 39 37 32 37 34
 data_50000_000	42 57 20 32 31 34 34 30 30 39 39 36 39 36 33 30 20 32 31 34 34 30 31 30 30 30 30 33 38 35 20 39 34 35 38 34 39 39 31 37
 data_50000_000	50 59 20 32 31 34 34 30 30 39 39 37 37 34 35 34 20 32 31 34 34 30 30 39 39 39 39 35 32 39 20 34 38 37 33 32 33 34 39 37
 data_50000_000	4d 4c 20 32 31 34 34 30 30 39 39 37 33 35 35 36 20 32 31 34 34 30 30 39 39 39 38 36 37 33 20 36 33 30 38 36 32 34 36 31
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | tail -5
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/smallfiles/combine/part-r-00000 | tail -5
 data_50000_230	43 52 20 32 31 34 38 36 36 38 31 36 38 36 38 36 20 32 31 34 38 36 36 38 31 39 35 30 36 38 20 36 39 35 39 38 38 34 30 33
 data_50000_230	50 52 20 32 31 34 38 36 36 38 31 36 35 36 34 36 20 32 31 34 38 36 36 38 31 39 34 36 34 30 20 38 34 30 36 35 31 39 38 38
 data_50000_230	53 52 20 32 31 34 38 36 36 38 31 36 36 34 38 37 20 32 31 34 38 36 36 38 31 39 34 36 34 30 20 37 39 32 35 36 38 32 38 30

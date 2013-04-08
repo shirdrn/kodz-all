@@ -21,7 +21,7 @@
 	</property>
 	<property>
 		<name>hbase.zookeeper.property.dataDir</name>
-		<value>/opt/comodo/cloud/storage/zookeeper</value>
+		<value>/opt/stone/cloud/storage/zookeeper</value>
 		<description>Property from ZooKeeper's config zoo.cfg. The directory where the
 			snapshot is stored.</description>
 	</property>

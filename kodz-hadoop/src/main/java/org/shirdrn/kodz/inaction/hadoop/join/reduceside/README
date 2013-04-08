@@ -1,18 +1,18 @@
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_basic_info.ds | head -5
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_basic_info.ds | head -5
 cdbaby.com	cdbaby.com	70.102.112.164	2	3
 breeze.net	breeze.net	206.72.119.156	5	6
 catoosaps.net	catoosaps.net	184.179.33.242	7	7
 chemswlive.com	chemswlive.com	209.18.64.145	8	8
 cityofnorthport.com	cityofnorthport.com	38.106.4.176	13	14
 cat: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_org_info.ds | tail -5
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/datasets/join/irc_org_info.ds | tail -5
 95616	_public_INDEPENDENT INSURANCE
 95888	_public_INTERMARK MGMT ML VOXIP
 259661	_public_Mechanical Sales Co DATA
 286434	_public_OKURA HARDWARE AND LUMBER
 217877	|Dinara Li
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar reduce-side-join.jar org.shirdrn.kodz.inaction.hadoop.join.reduceside.RecudeSideJoinDriver /user/xiaoxiang/datasets/join/irc_basic_info.ds /user/xiaoxiang/datasets/join/irc_org_info.ds /user/xiaoxiang/output/reduce-side-join
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar reduce-side-join.jar org.shirdrn.kodz.inaction.hadoop.join.reduceside.RecudeSideJoinDriver /user/xiaoxiang/datasets/join/irc_basic_info.ds /user/xiaoxiang/datasets/join/irc_org_info.ds /user/xiaoxiang/output/reduce-side-join
 13/03/28 16:33:50 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
 13/03/28 16:33:50 INFO input.FileInputFormat: Total input paths to process : 1
 13/03/28 16:33:50 INFO util.NativeCodeLoader: Loaded the native-hadoop library
@@ -99,9 +99,9 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar reduce-side-joi
 13/03/28 16:36:46 INFO mapred.JobClient:     Reduce output records=6659994
 13/03/28 16:36:46 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=9028067328
 13/03/28 16:36:46 INFO mapred.JobClient:     Map output records=6956606
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/reduce-side-join-rw-r--r--   3 xiaoxiang supergroup          0 2013-03-28 16:36 /user/xiaoxiang/output/reduce-side-join/_SUCCESS
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/reduce-side-join-rw-r--r--   3 xiaoxiang supergroup          0 2013-03-28 16:36 /user/xiaoxiang/output/reduce-side-join/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-28 16:33 /user/xiaoxiang/output/reduce-side-join/_logs
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-28 16:33 /user/xiaoxiang/output/reduce-side-join/_logs/history
 -rw-r--r--   3 xiaoxiang supergroup      56838 2013-03-28 16:33 /user/xiaoxiang/output/reduce-side-join/_logs/history/job_201303111631_0115_1364459630666_xiaoxiang_reduce-side+join
@@ -117,13 +117,13 @@ drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-28 16:33 /user/xiaoxiang/
 -rw-r--r--   3 xiaoxiang supergroup   32826123 2013-03-28 16:36 /user/xiaoxiang/output/reduce-side-join/part-r-00008
 -rw-r--r--   3 xiaoxiang supergroup   49045872 2013-03-28 16:36 /user/xiaoxiang/output/reduce-side-join/part-r-00009
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/reduce-side-join/part-r-00000 | head -510	1	cgdonline.cgd.fr	84.37.125.141	Easynet SAS
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/reduce-side-join/part-r-00000 | head -510	1	cgdonline.cgd.fr	84.37.125.141	Easynet SAS
 10	1	alexandria.easynet.fr	84.37.120.173	Easynet SAS
 10	1	mail.parenthese-paris.com	212.11.7.49	Easynet SAS
 10	1	jive-fr.cognex.com	212.11.39.115	Easynet SAS
 10	1	www.cfe.fr	84.37.52.106	Easynet SAS
 cat: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/reduce-side-join/part-r-00009 | head -5
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/reduce-side-join/part-r-00009 | head -5
 9	1	capgemini-consulting.com	84.37.86.172	CAP-GEMINI
 9	1	capgemini.com	84.37.86.172	CAP-GEMINI
 19	1	extranet.post.ca.gov	165.235.20.4	Teale Data Center

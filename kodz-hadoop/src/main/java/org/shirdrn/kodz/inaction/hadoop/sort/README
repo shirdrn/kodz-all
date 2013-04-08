@@ -1,10 +1,10 @@
 shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes$ jar -cvf total-sorter.jar -C ./ org
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ mkdir /opt/comodo/cloud/dataset/data
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ mv /opt/comodo/cloud/dataset/data_* /opt/comodo/cloud/dataset/data
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/data/* /user/xiaoxiang/datasets/sorter/source
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ mkdir /opt/stone/cloud/dataset/data
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ mv /opt/stone/cloud/dataset/data_* /opt/stone/cloud/dataset/data
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/data/* /user/xiaoxiang/datasets/sorter/source
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar total-sorter.jar org.shirdrn.kodz.inaction.hadoop.sort.TotalRecordsSorter /user/xiaoxiang/datasets/sorter/source /user/xiaoxiang/output/sorter/seq /user/xiaoxiang/output/sorter/sorted
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar total-sorter.jar org.shirdrn.kodz.inaction.hadoop.sort.TotalRecordsSorter /user/xiaoxiang/datasets/sorter/source /user/xiaoxiang/output/sorter/seq /user/xiaoxiang/output/sorter/sorted
 13/03/25 16:35:34 WARN mapred.JobClient: Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
 13/03/25 16:35:34 INFO input.FileInputFormat: Total input paths to process : 2
 13/03/25 16:35:34 INFO util.NativeCodeLoader: Loaded the native-hadoop library
@@ -265,7 +265,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar total-sorter.ja
 13/03/25 16:51:11 INFO mapred.JobClient:     Map output records=60000000
 
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/sorter
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -lsr /user/xiaoxiang/output/sorter
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 16:44 /user/xiaoxiang/output/sorter/seq
 -rw-r--r--   3 xiaoxiang supergroup          0 2013-03-25 16:44 /user/xiaoxiang/output/sorter/seq/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 16:35 /user/xiaoxiang/output/sorter/seq/_logs
@@ -294,10 +294,10 @@ drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-25 16:44 /user/xiaoxiang/
 -rw-r--r--   3 xiaoxiang supergroup   24653362 2013-03-25 16:50 /user/xiaoxiang/output/sorter/sorted/part-r-00008
 -rw-r--r--   3 xiaoxiang supergroup   24406470 2013-03-25 16:50 /user/xiaoxiang/output/sorter/sorted/part-r-00009
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/part-r-00000 | head -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/part-r-00000 | head -2
 text: File does not exist: /user/xiaoxiang/output/sorter/part-r-00000
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00000 | head -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00000 | head -2
 13/03/25 16:55:17 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:55:17 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:55:17 INFO compress.CodecPool: Got brand-new decompressor
@@ -307,7 +307,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiao
 11	PY
 14	KN
 text: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00000 | tail -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00000 | tail -2
 13/03/25 16:55:37 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:55:37 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:55:37 INFO compress.CodecPool: Got brand-new decompressor
@@ -316,7 +316,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiao
 13/03/25 16:55:37 INFO compress.CodecPool: Got brand-new decompressor
 99374726	HR
 99374733	GM
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00001 | head -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00001 | head -2
 13/03/25 16:56:19 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:56:19 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:56:19 INFO compress.CodecPool: Got brand-new decompressor
@@ -326,7 +326,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiao
 99374737	GH
 99374752	BT
 text: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00001 | tail -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00001 | tail -2
 13/03/25 16:56:37 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:56:37 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:56:37 INFO compress.CodecPool: Got brand-new decompressor
@@ -335,7 +335,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiao
 13/03/25 16:56:37 INFO compress.CodecPool: Got brand-new decompressor
 197413794	PW
 197413804	VE
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00009 | head -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00009 | head -2
 13/03/25 16:57:28 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:57:28 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:57:28 INFO compress.CodecPool: Got brand-new decompressor
@@ -345,7 +345,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiao
 899723716	SA
 899723744	AO
 text: Unable to write to output stream.
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00009 | tail -2
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -text /user/xiaoxiang/output/sorter/sorted/part-r-00009 | tail -2
 13/03/25 16:57:39 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/25 16:57:39 INFO zlib.ZlibFactory: Successfully loaded & initialized native-zlib library
 13/03/25 16:57:39 INFO compress.CodecPool: Got brand-new decompressor

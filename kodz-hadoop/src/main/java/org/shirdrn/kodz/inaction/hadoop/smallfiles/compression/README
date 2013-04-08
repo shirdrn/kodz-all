@@ -1,17 +1,17 @@
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ du -sh ../dataset/gzipfiles/*
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ du -sh ../dataset/gzipfiles/*
 147M	../dataset/gzipfiles/data_10m.gz
 43M	../dataset/gzipfiles/data_50000_1.gz
 16M	../dataset/gzipfiles/data_50000_2.gz
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/gzipfiles
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal ../dataset/gzipfiles/* /user/xiaoxiang/datasets/gzipfiles
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/datasets/gzipfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -mkdir /user/xiaoxiang/datasets/gzipfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal ../dataset/gzipfiles/* /user/xiaoxiang/datasets/gzipfiles
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/datasets/gzipfiles
 Found 3 items
 -rw-r--r--   3 xiaoxiang supergroup  153719349 2013-03-24 12:56 /user/xiaoxiang/datasets/gzipfiles/data_10m.gz
 -rw-r--r--   3 xiaoxiang supergroup   44476101 2013-03-24 12:56 /user/xiaoxiang/datasets/gzipfiles/data_50000_1.gz
 -rw-r--r--   3 xiaoxiang supergroup   15935178 2013-03-24 12:56 /user/xiaoxiang/datasets/gzipfiles/data_50000_2.gz
 
 jar -cvf gzip-compression.jar -C . org/shirdrn/kodz/inaction/hadoop/smallfiles/compression
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar gzip-compression.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.compression.GzipFilesMaxCostComputation /user/xiaoxiang/datasets/gzipfiles /user/xiaoxiang/output/smallfiles/gzip
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar gzip-compression.jar org.shirdrn.kodz.inaction.hadoop.smallfiles.compression.GzipFilesMaxCostComputation /user/xiaoxiang/datasets/gzipfiles /user/xiaoxiang/output/smallfiles/gzip
 13/03/24 13:06:28 INFO input.FileInputFormat: Total input paths to process : 3
 13/03/24 13:06:28 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/24 13:06:28 WARN snappy.LoadSnappy: Snappy native library not loaded
@@ -59,13 +59,13 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar gzip-compressio
 13/03/24 13:07:36 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=2211237888
 13/03/24 13:07:36 INFO mapred.JobClient:     Map output records=14079863
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/gzip
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -ls /user/xiaoxiang/output/smallfiles/gzip
 Found 3 items
 -rw-r--r--   3 xiaoxiang supergroup          0 2013-03-24 13:07 /user/xiaoxiang/output/smallfiles/gzip/_SUCCESS
 drwxr-xr-x   - xiaoxiang supergroup          0 2013-03-24 13:06 /user/xiaoxiang/output/smallfiles/gzip/_logs
 -rw-r--r--   3 xiaoxiang supergroup       1337 2013-03-24 13:07 /user/xiaoxiang/output/smallfiles/gzip/part-r-00000.gz
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyToLocal /user/xiaoxiang/output/smallfiles/gzip/part-r-00000.gz ./
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ gunzip -c ./part-r-00000.gz
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyToLocal /user/xiaoxiang/output/smallfiles/gzip/part-r-00000.gz ./
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ gunzip -c ./part-r-00000.gz
 AD	999974516
 AE	999938630
 AF	999996180

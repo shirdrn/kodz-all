@@ -1,7 +1,7 @@
 shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes$ jar -cvf global-extremum-cost.jar -C ./ org
-scp shirdrn@172.0.8.212:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes/global-extremum-cost.jar ./xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/data_10m /user/xiaoxiang/datasets/cost/
+scp shirdrn@172.0.8.212:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes/global-extremum-cost.jar ./xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/data_10m /user/xiaoxiang/datasets/cost/
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar global-extremum-cost.jar org.shirdrn.kodz.inaction.hadoop.extremum.ExtremumCostDriver /user/xiaoxiang/datasets/cost /user/xiaoxiang/output/extremum/cost
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar global-extremum-cost.jar org.shirdrn.kodz.inaction.hadoop.extremum.ExtremumCostDriver /user/xiaoxiang/datasets/cost /user/xiaoxiang/output/extremum/cost
 13/03/22 21:38:46 INFO input.FileInputFormat: Total input paths to process : 1
 13/03/22 21:38:46 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/22 21:38:46 WARN snappy.LoadSnappy: Snappy native library not loaded
@@ -56,11 +56,11 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar global-extremum
 13/03/22 21:40:15 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=4880068608
 13/03/22 21:40:15 INFO mapred.JobClient:     Map output records=10000000
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00000 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00000 
 121
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00001 
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00001 
 112
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00000
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00000
 AD	43328	999974516
 AF	11795	999996180
 AL	11148	999998489
@@ -182,7 +182,7 @@ YT	29640	999994707
 ZA	8399	999998692
 ZM	25699	999973392
 ZW	77984	999928087
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00001
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/extremum/cost/part-r-00001
 AE	1870	999938630
 AG	7701	999991085
 AI	8609	999989595

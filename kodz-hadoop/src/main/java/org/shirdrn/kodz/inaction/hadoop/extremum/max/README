@@ -1,9 +1,9 @@
 shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes$ jar -cvf global-max-cost.jar -C ./ org
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ scp shirdrn@172.0.8.212:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes/global-max-cost.jar ./
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ scp shirdrn@172.0.8.212:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hadoop/target/classes/global-max-cost.jar ./
 global-max-cost.jar
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/comodo/cloud/dataset/data_10m /user/xiaoxiang/datasets/cost/
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -copyFromLocal /opt/stone/cloud/dataset/data_10m /user/xiaoxiang/datasets/cost/
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar global-max-cost.jar org.shirdrn.kodz.inaction.hadoop.extremum.max.GlobalMaxCostDriver /user/xiaoxiang/datasets/cost /user/xiaoxiang/output/cost
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop jar global-max-cost.jar org.shirdrn.kodz.inaction.hadoop.extremum.max.GlobalMaxCostDriver /user/xiaoxiang/datasets/cost /user/xiaoxiang/output/cost
 13/03/22 16:30:16 INFO input.FileInputFormat: Total input paths to process : 1
 13/03/22 16:30:16 INFO util.NativeCodeLoader: Loaded the native-hadoop library
 13/03/22 16:30:16 WARN snappy.LoadSnappy: Snappy native library not loaded
@@ -54,7 +54,7 @@ xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop jar global-max-cost
 13/03/22 16:31:24 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=4316872704
 13/03/22 16:31:24 INFO mapred.JobClient:     Map output records=10000000
 
-xiaoxiang@ubuntu3:/opt/comodo/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/cost/part-r-00000
+xiaoxiang@ubuntu3:/opt/stone/cloud/hadoop-1.0.3$ bin/hadoop fs -cat /user/xiaoxiang/output/cost/part-r-00000
 AD	999974516
 AE	999938630
 AF	999996180
