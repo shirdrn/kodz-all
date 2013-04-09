@@ -12,5 +12,6 @@
   	<module>kodz-hadoop</module>
   	<module>kodz-dm</module>
   	<module>kodz-mahout</module>
+  	<module>kodz-hbase</module>
   </modules>
 </project>
