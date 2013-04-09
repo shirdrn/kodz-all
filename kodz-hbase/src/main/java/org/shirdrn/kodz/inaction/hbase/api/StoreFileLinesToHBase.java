@@ -35,6 +35,20 @@ public class StoreFileLinesToHBase {
 	static final Log LOG = LogFactory.getLog(StoreFileLinesToHBase.class);
 	static int	BATCH_SIZE = 1000;
 	static Map<String, HTable> TABLES = new HashMap<String, HTable>();
+	static {
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+			public void run() {
+				for(Map.Entry<String, HTable> entry : TABLES.entrySet()) {
+					try {
+						entry.getValue().close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+	}
 	
 	public synchronized static HTable openTable(String tableName) throws IOException {
 		HTable table = TABLES.get(tableName);
