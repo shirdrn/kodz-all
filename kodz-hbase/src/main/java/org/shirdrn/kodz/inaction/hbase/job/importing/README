@@ -1,15 +1,173 @@
+Steps are descibed as follows:
+
+1. Prepare text file
 xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -lsr datasets/domains
 -rw-r--r--   3 xiaoxiang supergroup  104390613 2012-08-22 14:10 /user/xiaoxiang/datasets/domains/subdomains_list_4995670
 xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -cat datasets/domains/subdomains_list_4995670 | wc -l
 4995670
 
+2.Create HBase table
+hbase(main):001:0> create 't_sub_domains', 'cf_basic', 'cf_status'
+0 row(s) in 1.5760 seconds
+
+3.Develop MapReduce job
 shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hbase/target/classes$ jar -cvf import-into-hbase.jar -C . org/
 shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hbase/target/classes$ scp -P2210 import-into-hbase.jar xiaoxiang@ubuntu3:/home/xiaoxiang/hadoop/
 
-xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/hbase-0.94.1.jar ./lib
-xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/zookeeper-3.4.3/zookeeper-3.4.3.jar ./lib
-xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/lib/protobuf-java-2.4.0a.jar ./lib
-xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/conf/hbase-site.xml ./lib
+4.Set environment
+export HADOOP_HOME=/opt/stone/cloud/hadoop-1.0.3
+export PATH=$PATH:$HADOOP_HOME/bin
+export HBASE_HOME=/opt/stone/cloud/hbase-0.94.1
+export PATH=$PATH:$HBASE_HOME/bin
+export ZK_HOME=/opt/stone/cloud/zookeeper-3.4.3
 
-bin/hadoop jar import-into-hbase.jar org.shirdrn.kodz.inaction.hbase.job.importing.ImportDataDriver t_sub_domains /user/xiaoxiang/datasets/domains/
+5.Run job
+xiaoxiang@ubuntu3:~/hadoop$ HADOOP_CLASSPATH=$HBASE_HOME/hbase-0.94.1.jar:$ZK_HOME/zookeeper-3.4.3.jar ./bin/hadoop jar import-into-hbase.jar org.shirdrn.kodz.inaction.hbase.job.importing.ImportDataDriver -libjars $HBASE_HOME/hbase-0.94.1.jar,$HBASE_HOME/lib/protobuf-java-2.4.0a.jar,$ZK_HOME/zookeeper-3.4.3.jar t_sub_domains /user/xiaoxiang/datasets/domains/ 
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.3-1240972, built on 02/06/2012 10:48 GMT
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:host.name=ubuntu3
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.version=1.6.0_30
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.vendor=Sun Microsystems Inc.
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.home=/usr/java/jdk1.6.0_30/jre
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.class.path=/opt/comodo/cloud/hadoop-1.0.3/libexec/../conf:/usr/java/jdk1.6.0_30/lib/tools.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/..:/opt/comodo/cloud/hadoop-1.0.3/libexec/../hadoop-core-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/asm-3.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/aspectjrt-1.6.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/aspectjtools-1.6.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-beanutils-1.7.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-beanutils-core-1.8.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-cli-1.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-codec-1.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-collections-3.2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-configuration-1.6.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-daemon-1.0.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-digester-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-el-1.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-httpclient-3.0.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-io-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-lang-2.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-logging-1.1.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-logging-api-1.0.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-math-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-net-1.4.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/core-3.1.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-capacity-scheduler-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-datajoin-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-fairscheduler-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-thriftfs-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hsqldb-1.8.0.10.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jackson-core-asl-1.8.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jackson-mapper-asl-1.8.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jasper-compiler-5.5.12.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jasper-runtime-5.5.12.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jdeb-0.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-core-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-json-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-server-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jets3t-0.6.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jetty-6.1.26.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jetty-util-6.1.26.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsch-0.1.42.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/junit-4.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/kfs-0.2.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/log4j-1.2.15.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/mockito-all-1.8.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/oro-2.0.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/protobuf-java-2.4.0a.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/servlet-api-2.5-20081211.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/slf4j-api-1.4.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/slf4j-log4j12-1.4.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/xmlenc-0.52.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsp-2.1/jsp-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsp-2.1/jsp-api-2.1.jar:/opt/comodo/cloud/hbase-0.94.1/hbase-0.94.1.jar:/opt/comodo/cloud/zookeeper-3.4.3/zookeeper-3.4.3.jar
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.library.path=/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/native/Linux-amd64-64
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:os.name=Linux
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:os.arch=amd64
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:os.version=3.0.0-12-server
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:user.name=xiaoxiang
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:user.home=/home/xiaoxiang
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Client environment:user.dir=/opt/comodo/cloud/hadoop-1.0.3
+13/04/10 22:03:32 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=ubuntu3:2222 sessionTimeout=180000 watcher=hconnection
+13/04/10 22:03:32 INFO zookeeper.ClientCnxn: Opening socket connection to server /172.0.8.252:2222
+13/04/10 22:03:32 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 17561@ubuntu3
+13/04/10 22:03:32 WARN client.ZooKeeperSaslClient: SecurityException: java.lang.SecurityException: Unable to locate a login configuration occurred when trying to find JAAS configuration.
+13/04/10 22:03:32 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+13/04/10 22:03:32 INFO zookeeper.ClientCnxn: Socket connection established to ubuntu3/172.0.8.252:2222, initiating session
+13/04/10 22:03:32 INFO zookeeper.ClientCnxn: Session establishment complete on server ubuntu3/172.0.8.252:2222, sessionid = 0x13decd0f3960042, negotiated timeout = 180000
+13/04/10 22:03:32 INFO mapreduce.TableOutputFormat: Created table instance for t_sub_domains
+13/04/10 22:03:32 INFO input.FileInputFormat: Total input paths to process : 1
+13/04/10 22:03:32 INFO util.NativeCodeLoader: Loaded the native-hadoop library
+13/04/10 22:03:32 WARN snappy.LoadSnappy: Snappy native library not loaded
+13/04/10 22:03:32 INFO mapred.JobClient: Running job: job_201303302227_0034
+13/04/10 22:03:33 INFO mapred.JobClient:  map 0% reduce 0%
+13/04/10 22:03:50 INFO mapred.JobClient:  map 2% reduce 0%
+13/04/10 22:03:53 INFO mapred.JobClient:  map 3% reduce 0%
+13/04/10 22:03:56 INFO mapred.JobClient:  map 4% reduce 0%
+13/04/10 22:03:59 INFO mapred.JobClient:  map 6% reduce 0%
+13/04/10 22:04:03 INFO mapred.JobClient:  map 7% reduce 0%
+13/04/10 22:04:06 INFO mapred.JobClient:  map 8% reduce 0%
+13/04/10 22:04:09 INFO mapred.JobClient:  map 10% reduce 0%
+13/04/10 22:04:15 INFO mapred.JobClient:  map 12% reduce 0%
+13/04/10 22:04:18 INFO mapred.JobClient:  map 13% reduce 0%
+13/04/10 22:04:21 INFO mapred.JobClient:  map 14% reduce 0%
+13/04/10 22:04:24 INFO mapred.JobClient:  map 15% reduce 0%
+13/04/10 22:04:27 INFO mapred.JobClient:  map 17% reduce 0%
+13/04/10 22:04:33 INFO mapred.JobClient:  map 18% reduce 0%
+13/04/10 22:04:36 INFO mapred.JobClient:  map 19% reduce 0%
+13/04/10 22:04:39 INFO mapred.JobClient:  map 20% reduce 0%
+13/04/10 22:04:42 INFO mapred.JobClient:  map 21% reduce 0%
+13/04/10 22:04:45 INFO mapred.JobClient:  map 23% reduce 0%
+13/04/10 22:04:48 INFO mapred.JobClient:  map 24% reduce 0%
+13/04/10 22:04:51 INFO mapred.JobClient:  map 25% reduce 0%
+13/04/10 22:04:54 INFO mapred.JobClient:  map 27% reduce 0%
+13/04/10 22:04:57 INFO mapred.JobClient:  map 28% reduce 0%
+13/04/10 22:05:00 INFO mapred.JobClient:  map 29% reduce 0%
+13/04/10 22:05:03 INFO mapred.JobClient:  map 31% reduce 0%
+13/04/10 22:05:06 INFO mapred.JobClient:  map 32% reduce 0%
+13/04/10 22:05:09 INFO mapred.JobClient:  map 33% reduce 0%
+13/04/10 22:05:12 INFO mapred.JobClient:  map 34% reduce 0%
+13/04/10 22:05:15 INFO mapred.JobClient:  map 35% reduce 0%
+13/04/10 22:05:18 INFO mapred.JobClient:  map 37% reduce 0%
+13/04/10 22:05:21 INFO mapred.JobClient:  map 38% reduce 0%
+13/04/10 22:05:24 INFO mapred.JobClient:  map 39% reduce 0%
+13/04/10 22:05:27 INFO mapred.JobClient:  map 41% reduce 0%
+13/04/10 22:05:30 INFO mapred.JobClient:  map 42% reduce 0%
+13/04/10 22:05:33 INFO mapred.JobClient:  map 43% reduce 0%
+13/04/10 22:05:36 INFO mapred.JobClient:  map 44% reduce 0%
+13/04/10 22:05:39 INFO mapred.JobClient:  map 46% reduce 0%
+13/04/10 22:05:42 INFO mapred.JobClient:  map 47% reduce 0%
+13/04/10 22:05:45 INFO mapred.JobClient:  map 48% reduce 0%
+13/04/10 22:05:48 INFO mapred.JobClient:  map 50% reduce 0%
+13/04/10 22:05:54 INFO mapred.JobClient:  map 52% reduce 0%
+13/04/10 22:05:57 INFO mapred.JobClient:  map 53% reduce 0%
+13/04/10 22:06:00 INFO mapred.JobClient:  map 54% reduce 0%
+13/04/10 22:06:03 INFO mapred.JobClient:  map 55% reduce 0%
+13/04/10 22:06:06 INFO mapred.JobClient:  map 57% reduce 0%
+13/04/10 22:06:12 INFO mapred.JobClient:  map 59% reduce 0%
+13/04/10 22:06:15 INFO mapred.JobClient:  map 60% reduce 0%
+13/04/10 22:06:18 INFO mapred.JobClient:  map 61% reduce 0%
+13/04/10 22:06:21 INFO mapred.JobClient:  map 62% reduce 0%
+13/04/10 22:06:24 INFO mapred.JobClient:  map 63% reduce 0%
+13/04/10 22:06:27 INFO mapred.JobClient:  map 64% reduce 0%
+13/04/10 22:06:30 INFO mapred.JobClient:  map 66% reduce 0%
+13/04/10 22:06:33 INFO mapred.JobClient:  map 67% reduce 0%
+13/04/10 22:06:36 INFO mapred.JobClient:  map 68% reduce 0%
+13/04/10 22:06:42 INFO mapred.JobClient:  map 69% reduce 0%
+13/04/10 22:06:45 INFO mapred.JobClient:  map 70% reduce 0%
+13/04/10 22:06:48 INFO mapred.JobClient:  map 71% reduce 0%
+13/04/10 22:06:51 INFO mapred.JobClient:  map 73% reduce 0%
+13/04/10 22:06:54 INFO mapred.JobClient:  map 74% reduce 0%
+13/04/10 22:06:57 INFO mapred.JobClient:  map 75% reduce 0%
+13/04/10 22:07:00 INFO mapred.JobClient:  map 77% reduce 0%
+13/04/10 22:07:03 INFO mapred.JobClient:  map 78% reduce 0%
+13/04/10 22:07:12 INFO mapred.JobClient:  map 79% reduce 0%
+13/04/10 22:07:18 INFO mapred.JobClient:  map 80% reduce 0%
+13/04/10 22:07:24 INFO mapred.JobClient:  map 81% reduce 0%
+13/04/10 22:07:30 INFO mapred.JobClient:  map 82% reduce 0%
+13/04/10 22:07:36 INFO mapred.JobClient:  map 83% reduce 0%
+13/04/10 22:07:48 INFO mapred.JobClient:  map 84% reduce 0%
+13/04/10 22:07:51 INFO mapred.JobClient:  map 85% reduce 0%
+13/04/10 22:07:59 INFO mapred.JobClient:  map 86% reduce 0%
+13/04/10 22:08:05 INFO mapred.JobClient:  map 87% reduce 0%
+13/04/10 22:08:11 INFO mapred.JobClient:  map 88% reduce 0%
+13/04/10 22:08:17 INFO mapred.JobClient:  map 89% reduce 0%
+13/04/10 22:08:23 INFO mapred.JobClient:  map 90% reduce 0%
+13/04/10 22:08:29 INFO mapred.JobClient:  map 91% reduce 0%
+13/04/10 22:08:35 INFO mapred.JobClient:  map 92% reduce 0%
+13/04/10 22:08:41 INFO mapred.JobClient:  map 93% reduce 0%
+13/04/10 22:08:47 INFO mapred.JobClient:  map 94% reduce 0%
+13/04/10 22:08:53 INFO mapred.JobClient:  map 95% reduce 0%
+13/04/10 22:08:59 INFO mapred.JobClient:  map 96% reduce 0%
+13/04/10 22:09:05 INFO mapred.JobClient:  map 97% reduce 0%
+13/04/10 22:09:11 INFO mapred.JobClient:  map 98% reduce 0%
+13/04/10 22:09:17 INFO mapred.JobClient:  map 99% reduce 0%
+13/04/10 22:09:23 INFO mapred.JobClient:  map 100% reduce 0%
+13/04/10 22:09:31 INFO mapred.JobClient: Job complete: job_201303302227_0034
+13/04/10 22:09:31 INFO mapred.JobClient: Counters: 18
+13/04/10 22:09:31 INFO mapred.JobClient:   Job Counters 
+13/04/10 22:09:31 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=550605
+13/04/10 22:09:31 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+13/04/10 22:09:31 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+13/04/10 22:09:31 INFO mapred.JobClient:     Launched map tasks=2
+13/04/10 22:09:31 INFO mapred.JobClient:     Data-local map tasks=2
+13/04/10 22:09:31 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=0
+13/04/10 22:09:31 INFO mapred.JobClient:   File Output Format Counters 
+13/04/10 22:09:31 INFO mapred.JobClient:     Bytes Written=0
+13/04/10 22:09:31 INFO mapred.JobClient:   FileSystemCounters
+13/04/10 22:09:31 INFO mapred.JobClient:     HDFS_BYTES_READ=104394990
+13/04/10 22:09:31 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=64078
+13/04/10 22:09:31 INFO mapred.JobClient:   File Input Format Counters 
+13/04/10 22:09:31 INFO mapred.JobClient:     Bytes Read=104394710
+13/04/10 22:09:31 INFO mapred.JobClient:   Map-Reduce Framework
+13/04/10 22:09:31 INFO mapred.JobClient:     Map input records=4995670
+13/04/10 22:09:31 INFO mapred.JobClient:     Physical memory (bytes) snapshot=279134208
+13/04/10 22:09:31 INFO mapred.JobClient:     Spilled Records=0
+13/04/10 22:09:31 INFO mapred.JobClient:     CPU time spent (ms)=129130
+13/04/10 22:09:31 INFO mapred.JobClient:     Total committed heap usage (bytes)=202833920
+13/04/10 22:09:31 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=1170251776
+13/04/10 22:09:31 INFO mapred.JobClient:     Map output records=4995670
+13/04/10 22:09:31 INFO mapred.JobClient:     SPLIT_RAW_BYTES=280
 
+6.Validate job output
+hbase(main):001:0> count 't_sub_domains', 500000
+Current count: 500000, row: 1997d90fd3b0a3626f80cfde3465b704                                                                                                                
+Current count: 1000000, row: 3339a004661035f938c6b2b6e787d2ad                                                                                                               
+Current count: 1500000, row: 4cd6fbb358a790b41da214f26167fc27                                                                                                               
+Current count: 2000000, row: 66732d8d47fbcf869cf97fcb939d66a6                                                                                                               
+Current count: 2500000, row: 801152592c5dd0a268b7aa4397ce2fea                                                                                                               
+Current count: 3000000, row: 99b96fa7673c973db1e77f48fb982f50                                                                                                               
+Current count: 3500000, row: b34cf2b5658c44880769fb66d8664121                                                                                                               
+Current count: 4000000, row: ccf29cf6ee093d50ecb85683f8aeb018                                                                                                               
+Current count: 4500000, row: e687aba8baf4d66aacc14ea01265cff6                                                                                                               
+4995670 row(s) in 350.4930 seconds

@@ -10,12 +10,11 @@ import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.shirdrn.kodz.inaction.hbase.utils.DatetimeUtils;
 
 public class ImportFileLinesMapper extends
-		Mapper<LongWritable, Text, ImmutableBytesWritable, Writable> {
+		Mapper<LongWritable, Text, ImmutableBytesWritable, Put> {
 
 	private static String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 	private byte[] basicFamily = null;
@@ -34,16 +33,18 @@ public class ImportFileLinesMapper extends
 		qualifierTimestamp = Bytes.toBytes(timestamp);
 	}
 	
-	byte[] lengthQualifier = Bytes.toBytes("len");
-	byte[] statusFamily = Bytes.toBytes("cf_status");
-	byte[] statusQualifier = Bytes.toBytes("status");
-	byte[] liveQualifier = Bytes.toBytes("live");
+	private byte[] lengthQualifier = Bytes.toBytes("len");
+	private byte[] statusFamily = Bytes.toBytes("cf_status");
+	private byte[] statusQualifier = Bytes.toBytes("status");
+	private byte[] liveQualifier = Bytes.toBytes("live");
 	
 	@Override
 	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
 		String line = value.toString();
-		byte[] rowKey = DigestUtils.md5(line);
+		// set row key
+		String row = DigestUtils.md5Hex(line);
+		byte[] rowKey = Bytes.toBytes(row);
 		Put put = new Put(rowKey);
 		put.add(basicFamily, qualifierFqdn, Bytes.toBytes(line));
 		String creatAt = DatetimeUtils.formatDateTime(new Date(), DATE_FORMAT);
