@@ -1,0 +1,15 @@
+xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -lsr datasets/domains
+-rw-r--r--   3 xiaoxiang supergroup  104390613 2012-08-22 14:10 /user/xiaoxiang/datasets/domains/subdomains_list_4995670
+xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -cat datasets/domains/subdomains_list_4995670 | wc -l
+4995670
+
+shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hbase/target/classes$ jar -cvf import-into-hbase.jar -C . org/
+shirdrn@SYJ:~/programs/eclipse-jee-juno/workspace/kodz-all/kodz-hbase/target/classes$ scp -P2210 import-into-hbase.jar xiaoxiang@ubuntu3:/home/xiaoxiang/hadoop/
+
+xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/hbase-0.94.1.jar ./lib
+xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/zookeeper-3.4.3/zookeeper-3.4.3.jar ./lib
+xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/lib/protobuf-java-2.4.0a.jar ./lib
+xiaoxiang@ubuntu3:~/hadoop$ cp /opt/comodo/cloud/hbase-0.94.1/conf/hbase-site.xml ./lib
+
+bin/hadoop jar import-into-hbase.jar org.shirdrn.kodz.inaction.hbase.job.importing.ImportDataDriver t_sub_domains /user/xiaoxiang/datasets/domains/
+

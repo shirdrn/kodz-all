@@ -23,10 +23,13 @@ import org.shirdrn.kodz.inaction.hbase.utils.GeoIPLookupService;
 import org.xbill.DNS.Address;
 
 /**
- * Store local file content to HBase table. And , the DDL for table 'all_domains' is:
- * <dd>
- * create 'all_domains', 'cf_basic', 'cf_dynamic', 'cf_status', 'cf_time'
- * </dd>
+ * Store local file content to HBase table. And , the DDL for table 'all_domains' is:</br>
+ * <b>create 'all_domains', 'cf_basic', 'cf_dynamic', 'cf_status', 'cf_time'</b>
+ * <pre>
+ * cf_basic:domain cf_basic:length
+ * cf_dynamic:ipaddress cf_dynamic:ip_count cf_dynamic:country
+ * cf_status:is_live
+ * </pre>
  * 
  * @author shirdrn
  */
