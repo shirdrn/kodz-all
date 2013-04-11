@@ -1,0 +1,94 @@
+1.Start MR job:
+xiaoxiang@ubuntu3:~/hadoop$ HADOOP_CLASSPATH=$HBASE_HOME/hbase-0.94.1.jar:$ZK_HOME/zookeeper-3.4.3.jar bin/hadoop jar count-hbasevalue-size.jar org.shirdrn.kodz.inaction.hbase.job.count.CountValueSize -libjars $HBASE_HOME/hbase-0.94.1.jar,$HBASE_HOME/lib/protobuf-java-2.4.0a.jar,$ZK_HOME/zookeeper-3.4.3.jar t_sub_domains /user/xiaoxiang/output/table-value-size
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.3-1240972, built on 02/06/2012 10:48 GMT
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:host.name=ubuntu3
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.version=1.6.0_30
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.vendor=Sun Microsystems Inc.
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.home=/usr/java/jdk1.6.0_30/jre
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.class.path=/opt/comodo/cloud/hadoop-1.0.3/libexec/../conf:/usr/java/jdk1.6.0_30/lib/tools.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/..:/opt/comodo/cloud/hadoop-1.0.3/libexec/../hadoop-core-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/asm-3.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/aspectjrt-1.6.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/aspectjtools-1.6.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-beanutils-1.7.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-beanutils-core-1.8.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-cli-1.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-codec-1.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-collections-3.2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-configuration-1.6.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-daemon-1.0.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-digester-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-el-1.0.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-httpclient-3.0.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-io-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-lang-2.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-logging-1.1.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-logging-api-1.0.4.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-math-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/commons-net-1.4.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/core-3.1.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-capacity-scheduler-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-datajoin-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-fairscheduler-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hadoop-thriftfs-1.0.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/hsqldb-1.8.0.10.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jackson-core-asl-1.8.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jackson-mapper-asl-1.8.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jasper-compiler-5.5.12.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jasper-runtime-5.5.12.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jdeb-0.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-core-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-json-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jersey-server-1.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jets3t-0.6.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jetty-6.1.26.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jetty-util-6.1.26.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsch-0.1.42.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/junit-4.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/kfs-0.2.2.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/log4j-1.2.15.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/mockito-all-1.8.5.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/oro-2.0.8.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/protobuf-java-2.4.0a.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/servlet-api-2.5-20081211.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/slf4j-api-1.4.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/slf4j-log4j12-1.4.3.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/xmlenc-0.52.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsp-2.1/jsp-2.1.jar:/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/jsp-2.1/jsp-api-2.1.jar:/opt/comodo/cloud/hbase-0.94.1/hbase-0.94.1.jar:/opt/comodo/cloud/zookeeper-3.4.3/zookeeper-3.4.3.jar
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.library.path=/opt/comodo/cloud/hadoop-1.0.3/libexec/../lib/native/Linux-amd64-64
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:os.name=Linux
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:os.arch=amd64
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:os.version=3.0.0-12-server
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:user.name=xiaoxiang
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:user.home=/home/xiaoxiang
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Client environment:user.dir=/opt/comodo/cloud/hadoop-1.0.3
+13/04/12 00:09:29 INFO zookeeper.ZooKeeper: Initiating client connection, connectString=ubuntu3:2222 sessionTimeout=180000 watcher=hconnection
+13/04/12 00:09:29 INFO zookeeper.ClientCnxn: Opening socket connection to server /172.0.8.252:2222
+13/04/12 00:09:29 INFO zookeeper.RecoverableZooKeeper: The identifier of this process is 23721@ubuntu3
+13/04/12 00:09:29 WARN client.ZooKeeperSaslClient: SecurityException: java.lang.SecurityException: Unable to locate a login configuration occurred when trying to find JAAS configuration.
+13/04/12 00:09:29 INFO client.ZooKeeperSaslClient: Client will not SASL-authenticate because the default JAAS configuration section 'Client' could not be found. If you are not using SASL, you may ignore this. On the other hand, if you expected SASL to work, please fix your JAAS configuration.
+13/04/12 00:09:29 INFO zookeeper.ClientCnxn: Socket connection established to ubuntu3/172.0.8.252:2222, initiating session
+13/04/12 00:09:29 INFO zookeeper.ClientCnxn: Session establishment complete on server ubuntu3/172.0.8.252:2222, sessionid = 0x13decd0f3960048, negotiated timeout = 180000
+13/04/12 00:09:30 INFO mapred.JobClient: Running job: job_201303302227_0035
+13/04/12 00:09:31 INFO mapred.JobClient:  map 0% reduce 0%
+13/04/12 00:14:07 INFO mapred.JobClient:  map 33% reduce 0%
+13/04/12 00:14:16 INFO mapred.JobClient:  map 33% reduce 11%
+13/04/12 00:18:25 INFO mapred.JobClient:  map 66% reduce 11%
+13/04/12 00:18:28 INFO mapred.JobClient:  map 100% reduce 11%
+13/04/12 00:18:34 INFO mapred.JobClient:  map 100% reduce 22%
+13/04/12 00:18:40 INFO mapred.JobClient:  map 100% reduce 100%
+13/04/12 00:18:45 INFO mapred.JobClient: Job complete: job_201303302227_0035
+13/04/12 00:18:45 INFO mapred.JobClient: Counters: 39
+13/04/12 00:18:45 INFO mapred.JobClient:   Job Counters 
+13/04/12 00:18:45 INFO mapred.JobClient:     Launched reduce tasks=1
+13/04/12 00:18:45 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=1051415
+13/04/12 00:18:45 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+13/04/12 00:18:45 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+13/04/12 00:18:45 INFO mapred.JobClient:     Rack-local map tasks=3
+13/04/12 00:18:45 INFO mapred.JobClient:     Launched map tasks=3
+13/04/12 00:18:45 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=272441
+13/04/12 00:18:45 INFO mapred.JobClient:   HBase Counters
+13/04/12 00:18:45 INFO mapred.JobClient:     REMOTE_RPC_CALLS=0
+13/04/12 00:18:45 INFO mapred.JobClient:     RPC_CALLS=4995679
+13/04/12 00:18:45 INFO mapred.JobClient:     RPC_RETRIES=0
+13/04/12 00:18:45 INFO mapred.JobClient:     NOT_SERVING_REGION_EXCEPTION=0
+13/04/12 00:18:45 INFO mapred.JobClient:     NUM_SCANNER_RESTARTS=0
+13/04/12 00:18:45 INFO mapred.JobClient:     MILLIS_BETWEEN_NEXTS=1033581
+13/04/12 00:18:45 INFO mapred.JobClient:     BYTES_IN_RESULTS=2002745213
+13/04/12 00:18:45 INFO mapred.JobClient:     BYTES_IN_REMOTE_RESULTS=0
+13/04/12 00:18:45 INFO mapred.JobClient:     REGIONS_SCANNED=3
+13/04/12 00:18:45 INFO mapred.JobClient:     REMOTE_RPC_RETRIES=0
+13/04/12 00:18:45 INFO mapred.JobClient:   File Output Format Counters 
+13/04/12 00:18:45 INFO mapred.JobClient:     Bytes Written=60
+13/04/12 00:18:45 INFO mapred.JobClient:   FileSystemCounters
+13/04/12 00:18:45 INFO mapred.JobClient:     FILE_BYTES_READ=12816
+13/04/12 00:18:45 INFO mapred.JobClient:     HDFS_BYTES_READ=446
+13/04/12 00:18:45 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=147745
+13/04/12 00:18:45 INFO mapred.JobClient:     HDFS_BYTES_WRITTEN=60
+13/04/12 00:18:45 INFO mapred.JobClient:   File Input Format Counters 
+13/04/12 00:18:45 INFO mapred.JobClient:     Bytes Read=0
+13/04/12 00:18:45 INFO mapred.JobClient:   Map-Reduce Framework
+13/04/12 00:18:45 INFO mapred.JobClient:     Map output materialized bytes=228
+13/04/12 00:18:45 INFO mapred.JobClient:     Map input records=4995670
+13/04/12 00:18:45 INFO mapred.JobClient:     Reduce shuffle bytes=152
+13/04/12 00:18:45 INFO mapred.JobClient:     Spilled Records=885
+13/04/12 00:18:45 INFO mapred.JobClient:     Map output bytes=299740200
+13/04/12 00:18:45 INFO mapred.JobClient:     CPU time spent (ms)=614930
+13/04/12 00:18:45 INFO mapred.JobClient:     Total committed heap usage (bytes)=558825472
+13/04/12 00:18:45 INFO mapred.JobClient:     Combine input records=24978830
+13/04/12 00:18:45 INFO mapred.JobClient:     SPLIT_RAW_BYTES=446
+13/04/12 00:18:45 INFO mapred.JobClient:     Reduce input records=15
+13/04/12 00:18:45 INFO mapred.JobClient:     Reduce input groups=5
+13/04/12 00:18:45 INFO mapred.JobClient:     Combine output records=495
+13/04/12 00:18:45 INFO mapred.JobClient:     Physical memory (bytes) snapshot=701992960
+13/04/12 00:18:45 INFO mapred.JobClient:     Reduce output records=5
+13/04/12 00:18:45 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=2202562560
+13/04/12 00:18:45 INFO mapred.JobClient:     Map output records=24978350
+
+2.Validate job output
+xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -lsr /user/xiaoxiang/output/table-value-size
+-rw-r--r--   1 xiaoxiang supergroup          0 2013-04-12 00:18 /user/xiaoxiang/output/table-value-size/_SUCCESS
+drwxr-xr-x   - xiaoxiang supergroup          0 2013-04-12 00:09 /user/xiaoxiang/output/table-value-size/_logs
+drwxr-xr-x   - xiaoxiang supergroup          0 2013-04-12 00:09 /user/xiaoxiang/output/table-value-size/_logs/history
+-rw-r--r--   3 xiaoxiang supergroup      23409 2013-04-12 00:09 /user/xiaoxiang/output/table-value-size/_logs/history/job_201303302227_0035_1365696570527_xiaoxiang_count+value+length
+-rw-r--r--   3 xiaoxiang supergroup      31005 2013-04-12 00:09 /user/xiaoxiang/output/table-value-size/_logs/history/job_201303302227_0035_conf.xml
+-rw-r--r--   1 xiaoxiang supergroup         60 2013-04-12 00:18 /user/xiaoxiang/output/table-value-size/part-r-00000
+xiaoxiang@ubuntu3:~/hadoop$ bin/hadoop fs -cat /user/xiaoxiang/output/table-value-size/part-r-00000
+55	19982680
+57	19982680
+58	99394943
+59	19982680
+61	94917730
