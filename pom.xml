@@ -6,12 +6,13 @@
   <packaging>pom</packaging>
   <name>Kodz-all</name>
   <modules>
-  	<module>kodz-mina</module>
-  	<module>kodz-netty</module>
-  	<module>kodz-disruptor</module>
-  	<module>kodz-hadoop</module>
-  	<module>kodz-dm</module>
-  	<module>kodz-mahout</module>
-  	<module>kodz-hbase</module>
+  	<module>mina</module>
+  	<module>netty</module>
+  	<module>disruptor</module>
+  	<module>hadoop</module>
+  	<module>data-mining</module>
+  	<module>mahout</module>
+  	<module>hbase</module>
+  	<module>solr-web</module>
   </modules>
 </project>

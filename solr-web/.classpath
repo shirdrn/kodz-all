@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/solr/solr-core/4.3.1/solr-core-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/solr/solr-solrj/4.3.1/solr-solrj-4.3.1.jar" sourcepath="M2_REPO/org/apache/solr/solr-solrj/4.3.1/solr-solrj-4.3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/zookeeper/zookeeper/3.4.5/zookeeper-3.4.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.1/commons-io-2.1.jar" sourcepath="M2_REPO/commons-io/commons-io/2.1/commons-io-2.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/noggit/noggit/0.5/noggit-0.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.2.3/httpclient-4.2.3.jar" sourcepath="M2_REPO/org/apache/httpcomponents/httpclient/4.2.3/httpclient-4.2.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.2.2/httpcore-4.2.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.7/commons-codec-1.7.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpmime/4.2.3/httpmime-4.2.3.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/codehaus/woodstox/wstx-asl/3.2.7/wstx-asl-3.2.7.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-core/4.3.1/lucene-core-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-codecs/4.3.1/lucene-codecs-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-analyzers-common/4.3.1/lucene-analyzers-common-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-analyzers-kuromoji/4.3.1/lucene-analyzers-kuromoji-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-analyzers-phonetic/4.3.1/lucene-analyzers-phonetic-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-highlighter/4.3.1/lucene-highlighter-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-memory/4.3.1/lucene-memory-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-queries/4.3.1/lucene-queries-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-misc/4.3.1/lucene-misc-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-queryparser/4.3.1/lucene-queryparser-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-spatial/4.3.1/lucene-spatial-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/spatial4j/spatial4j/0.3/spatial4j-0.3.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-suggest/4.3.1/lucene-suggest-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/lucene/lucene-grouping/4.3.1/lucene-grouping-4.3.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-cli/commons-cli/1.2/commons-cli-1.2.jar" sourcepath="M2_REPO/commons-cli/commons-cli/1.2/commons-cli-1.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-fileupload/commons-fileupload/1.2.1/commons-fileupload-1.2.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/restlet/jee/org.restlet/2.1.1/org.restlet-2.1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/restlet/jee/org.restlet.ext.servlet/2.1.1/org.restlet.ext.servlet-2.1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava/13.0.1/guava-13.0.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+</classpath>
