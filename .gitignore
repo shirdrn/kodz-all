@@ -3,7 +3,21 @@
 # Package Files #
 *.jar
 *.war
-*.earkodz-netty/target
-kodz-mina/target
-kodz-hadoop/target
-kodz-disruptor/target
+*.ear
+
+.project
+.classpath
+
+*/.project
+*/.classpath
+
+data-mining/target
+disruptor/target
+hadoop/target
+hbase/target
+mahout/target
+mina/target
+netty/target
+solr-manager/target
+solr-web/target
+
