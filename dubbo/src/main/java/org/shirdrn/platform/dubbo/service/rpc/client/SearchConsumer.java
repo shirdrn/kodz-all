@@ -7,7 +7,6 @@ import org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService;
 import org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService.ResponseType;
 import org.springframework.beans.BeansException;
 import org.springframework.context.support.AbstractXmlApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.alibaba.dubbo.rpc.RpcContext;
 
@@ -48,36 +47,5 @@ public class SearchConsumer {
 		return searchService.search(collection, q, type, start, rows);
 	}
 	
-	public static void main(String[] args) throws Exception {
-		final String collection = "tinycollection";
-		final String beanXML = "search-consumer.xml";
-		final String config = SearchConsumer.class.getPackage().getName().replace('.', '/') + "/" + beanXML;
-		SearchConsumer consumer = new SearchConsumer(collection, new Callable<AbstractXmlApplicationContext>() {
-			public AbstractXmlApplicationContext call() throws Exception {
-				final AbstractXmlApplicationContext context = new ClassPathXmlApplicationContext(config);
-				return context;
-			}
-		});
-		
-		String q = "q=上海&fl=*&fq=building_type:1";
-		int start = 0;
-		int rows = 10;
-		ResponseType type  = ResponseType.XML;
-		for (int k = 0; k < 1000; k++) {
-			for (int i = 0; i < 10; i++) {
-				start = 1 * 10 * i;
-				if(i % 2 == 0) {
-					type = ResponseType.XML;
-				} else {
-					type = ResponseType.JSON;
-				}
-				Thread.sleep(200);
-//				String result = consumer.syncCall(q, type, start, rows);
-//				System.out.println(result);
-				Future<String> future = consumer.asyncCall(q, type, start, rows);
-				System.out.println(future.get());
-			}
-		}
-	}
 
 }

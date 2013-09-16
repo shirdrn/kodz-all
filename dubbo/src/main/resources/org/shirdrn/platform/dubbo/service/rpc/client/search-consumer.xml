@@ -7,7 +7,6 @@
 
 	<dubbo:application name="search-consumer" />
 	<dubbo:registry address="zookeeper://slave1:2188?backup=slave3:2188,slave4:2188" />
-	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
 	<dubbo:reference id="searchService" interface="org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService" />
 
 </beans>

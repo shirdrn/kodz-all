@@ -1,6 +1,5 @@
 package org.shirdrn.platform.dubbo.service.rpc.server;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.shirdrn.platform.dubbo.service.rpc.api.SolrSearchService;
 import org.shirdrn.platform.dubbo.service.rpc.utils.QueryPostClient;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SolrSearchServer implements SolrSearchService {
 
@@ -52,11 +50,4 @@ public class SolrSearchServer implements SolrSearchService {
 		String format();
 	}
 	
-	public static void main(String[] args) throws IOException {
-		String config = SolrSearchServer.class.getPackage().getName().replace('.', '/') + "/search-provider.xml";
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(config);
-        context.start();
-        System.in.read();
-	}
-
 }
