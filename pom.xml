@@ -14,5 +14,6 @@
   	<module>mahout</module>
   	<module>hbase</module>
   	<module>solr-web</module>
+  	<module>solr-manager</module>
   </modules>
 </project>
