@@ -7,6 +7,7 @@
 
 .project
 .classpath
+.settings
 
 */.project
 */.classpath
@@ -20,4 +21,5 @@ mina/target
 netty/target
 solr-manager/target
 solr-web/target
+dubbo/target
 
