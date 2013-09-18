@@ -125,7 +125,7 @@ public abstract class AbstractIndexingManager implements IndexingManager {
 		this.timeTypeField = get("solr.time.type.field", "time_type");
 		this.timeIdField = get("solr.time.id.field", "time_id");
 		this.indexerAssemblerClassname = get("solr.indexer.assembler.class", 
-				"cn.com.tescomm.solr.cloud.index.standalone.HiveBasedIndexer.Assembler");
+				"org.shirdrn.solr.cloud.index.standalone.HiveBasedIndexer.Assembler");
 	}
 	
 	@Override
