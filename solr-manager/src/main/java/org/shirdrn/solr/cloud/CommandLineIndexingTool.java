@@ -19,9 +19,9 @@ import org.shirdrn.solr.cloud.index.standalone.MultiThreadedFileBasedIndexer;
 import org.shirdrn.solr.cloud.index.standalone.MultiThreadedHiveBasedIndexer;
 import org.shirdrn.solr.cloud.index.standalone.SingleThreadFileBasedIndexer;
 
-public class IndexingManager {
+public class CommandLineIndexingTool {
 
-	private static final Log LOG = LogFactory.getLog(IndexingManager.class);
+	private static final Log LOG = LogFactory.getLog(CommandLineIndexingTool.class);
 	private static final Map<String, ArgsAssembler<? extends AbstractIndexer>> ASSEMBLERS = new LinkedHashMap<>();
 	private static final Map<String, Object> OTHERS_ASSEMBLERS = new LinkedHashMap<>();
 	// <type, name> pairs
@@ -64,7 +64,7 @@ public class IndexingManager {
 	}
 	
 	private static String getClassname() {
-		return IndexingManager.class.getName();
+		return CommandLineIndexingTool.class.getName();
 	}
 	
 	private static void printUsage(String type, ArgsAssembler<? extends AbstractIndexer> assembler) {

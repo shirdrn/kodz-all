@@ -32,9 +32,9 @@ import org.shirdrn.solr.cloud.utils.FileUtils;
 import org.shirdrn.solr.cloud.utils.ObjectFactory;
 import org.shirdrn.solr.cloud.utils.TimeUtils;
 
-public class MultipleTablesIndexingManager {
+public class MultipleTablesIndexingTool {
 
-	private static final Log LOG = LogFactory.getLog(MultipleTablesIndexingManager.class);
+	private static final Log LOG = LogFactory.getLog(MultipleTablesIndexingTool.class);
 	private static final String PROP_FILE_NAME = "solr.properties";
 	private static final String MAPPINGS_FILE_NAME = "mappings.conf";
 	private final Properties props = new Properties(); 
@@ -55,7 +55,7 @@ public class MultipleTablesIndexingManager {
 	private final LinkedHashMap<String, MappedObj> mapped = new LinkedHashMap<>(0);
 	private final ConcurrentHashMap<String, IndexerStat> indexerStats = new ConcurrentHashMap<>();
 	
-	public MultipleTablesIndexingManager(){
+	public MultipleTablesIndexingTool(){
         readProperties();
         readMappings();
         totalCount = mapped.size();
@@ -378,7 +378,7 @@ public class MultipleTablesIndexingManager {
 	}
 	
 	public static void main(String[] args) {
-		MultipleTablesIndexingManager manager = new MultipleTablesIndexingManager();
+		MultipleTablesIndexingTool manager = new MultipleTablesIndexingTool();
 		manager.indexDocs();
 	}
 
