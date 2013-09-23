@@ -17,6 +17,7 @@
 		<module>solr-manager</module>
 		<module>dubbo</module>
 		<module>spring</module>
+		<module>dbpool</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
