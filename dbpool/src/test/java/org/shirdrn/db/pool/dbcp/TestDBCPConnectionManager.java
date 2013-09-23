@@ -1,4 +1,4 @@
-package org.shirdrn.db.pool.c3p0;
+package org.shirdrn.db.pool.dbcp;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -12,13 +12,13 @@ import org.junit.After;
 import org.junit.Test;
 import org.shirdrn.db.pool.ConnectionManager;
 
-public class TestC3p0ConnectionManager {
+public class TestDBCPConnectionManager {
 
 	ConnectionManager cm;
 	
 	@Test
 	public void getConnection() throws Exception {
-		cm = new C3p0ConnectionManager();
+		cm = new DBCPConnectionManager();
 		Connection conn = cm.getConnection();
 		assertNotNull(conn);
 		
@@ -27,7 +27,7 @@ public class TestC3p0ConnectionManager {
 	
 	@Test
 	public void getConnection2() throws Exception {
-		cm = new C3p0ConnectionManager("c3p0-test.properties");
+		cm = new DBCPConnectionManager("dbcp-test.properties");
 		Connection conn = cm.getConnection();
 		assertNotNull(conn);
 		
