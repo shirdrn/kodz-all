@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<context:property-placeholder location="classpath:bonecp.properties" />
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	
+		<property name="basePackage" value="com.xxxx.dal.mapper" />
+	
+		<property name="sqlSessionFactoryBeanName" value="ysSqlSessionFactory" />
+	
+		<!-- <property name="sqlSessionFactory" ref="ysSqlSessionFactory"></property> -->
+	
+	</bean>
+ 
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${bonecp.driverClass}" />
+		<property name="jdbcUrl" value="${bonecp.jdbcUrl}" />
+		<property name="username" value="${bonecp.username}" />
+		<property name="password" value="${bonecp.password}" />
+		<property name="idleConnectionTestPeriodInMinutes" value="${bonecp.idleConnectionTestPeriodInMinutes}" />
+		<property name="idleMaxAgeInMinutes" value="${bonecp.idleMaxAgeInMinutes}" />
+		<property name="minConnectionsPerPartition" value="${bonecp.minConnectionsPerPartition}" />
+		<property name="maxConnectionsPerPartition" value="${bonecp.maxConnectionsPerPartition}" />
+		<property name="partitionCount" value="${bonecp.partitionCount}" />
+		<property name="acquireIncrement" value="${bonecp.acquireIncrement}" />
+		<property name="statementsCacheSize" value="${bonecp.statementsCacheSize}" />
+		<property name="releaseHelperThreads" value="${bonecp.releaseHelperThreads}" />
+	</bean>
+	
+	
+</beans>

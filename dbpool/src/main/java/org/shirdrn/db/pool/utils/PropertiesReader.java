@@ -29,6 +29,10 @@ public final class PropertiesReader {
 		}
 	}
 	
+	public String get(String key) {
+		return props.getProperty(key);
+	}
+	
 	public String get(String key, String defaultValue) {
 		String value = defaultValue;
 		String v = props.getProperty(key);
