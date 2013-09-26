@@ -12,8 +12,10 @@
 	<modules>
 		<module>spring-security</module>
 		<module>spring-security-web</module>
+		<module>spring-jdbc</module>
 	</modules>
 	<dependencies>
+		<!--
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -64,6 +66,7 @@
 			<artifactId>spring-tx</artifactId>
 			<version>3.1.4.RELEASE</version>
 		</dependency>
+		-->
 	</dependencies>
 	<packaging>pom</packaging>
 </project>

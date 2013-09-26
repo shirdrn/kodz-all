@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	
+	<bean id="rowMapper" class="org.shirdrn.spring.jdbc.PostRowMapper" />
+	<bean id="postDao" class="org.shirdrn.spring.jdbc.JdbcPostDAO">
+		<property name="dataSource" ref="dataSource" />
+		<property name="rowMapper" ref="rowMapper" />
+	</bean>
+	
+	<context:property-placeholder location="dbcp.properties" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${dbcp.driverClassName}" />
+		<property name="url" value="${dbcp.url}" />
+		<property name="username" value="${dbcp.username}" />
+		<property name="password" value="${dbcp.password}" />
+		<property name="initialSize" value="${dbcp.initialSize}" />
+		<property name="maxActive" value="${dbcp.maxActive}" />
+		<property name="minIdle" value="${dbcp.minIdle}" />
+		<property name="maxIdle" value="${dbcp.maxIdle}" />
+		<property name="maxWait" value="${dbcp.maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${dbcp.timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${dbcp.minEvictableIdleTimeMillis}" />
+		<property name="removeAbandoned" value="${dbcp.removeAbandoned}" />
+		<property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}" />
+		<property name="logAbandoned" value="${dbcp.logAbandoned}" />
+		<property name="validationQuery" value="${dbcp.validationQuery}" />
+		<property name="testOnBorrow" value="${dbcp.testOnBorrow}" />
+		<property name="testOnReturn" value="${dbcp.testOnReturn}" />
+		<property name="testWhileIdle" value="${dbcp.testWhileIdle}" />
+	</bean>
+</beans>
