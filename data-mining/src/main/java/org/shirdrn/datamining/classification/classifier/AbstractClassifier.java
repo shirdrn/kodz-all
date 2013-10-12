@@ -1,4 +1,4 @@
-package org.shirdrn.kodz.inaction.dm.classifier;
+package org.shirdrn.datamining.classification.classifier;
 
 import java.io.Closeable;
 import java.util.ArrayList;

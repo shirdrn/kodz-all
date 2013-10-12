@@ -1,3 +1,4 @@
+package org.shirdrn.datamining.classification.math;
 //package org.shirdrn.kodz.inaction.dm.math;
 //
 //import java.util.Iterator;

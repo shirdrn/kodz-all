@@ -1,9 +1,9 @@
-package org.shirdrn.kodz.inaction.dm.classifier.dt.id3;
+package org.shirdrn.datamining.classification.classifier.dt.id3;
 
 import java.io.IOException;
 
-import org.shirdrn.kodz.inaction.dm.classifier.ClassLabel;
-import org.shirdrn.kodz.inaction.dm.classifier.DataRecord;
+import org.shirdrn.datamining.classification.classifier.ClassLabel;
+import org.shirdrn.datamining.classification.classifier.DataRecord;
 
 public class TextLineID3Classifier extends AbstractID3Classifier<String> {
 

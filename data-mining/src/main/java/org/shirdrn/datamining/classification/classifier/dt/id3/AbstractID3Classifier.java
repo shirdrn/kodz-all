@@ -1,12 +1,12 @@
-package org.shirdrn.kodz.inaction.dm.classifier.dt.id3;
+package org.shirdrn.datamining.classification.classifier.dt.id3;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.shirdrn.kodz.inaction.dm.classifier.AbstractClassifier;
-import org.shirdrn.kodz.inaction.dm.classifier.Attr;
-import org.shirdrn.kodz.inaction.dm.classifier.dt.DTDataModel;
+import org.shirdrn.datamining.classification.classifier.AbstractClassifier;
+import org.shirdrn.datamining.classification.classifier.Attr;
+import org.shirdrn.datamining.classification.classifier.dt.DTDataModel;
 
 public abstract class AbstractID3Classifier<T> extends AbstractClassifier<T> {
 

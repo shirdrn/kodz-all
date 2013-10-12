@@ -1,4 +1,4 @@
-package org.shirdrn.kodz.inaction.dm.classifier;
+package org.shirdrn.datamining.classification.classifier;
 
 import java.util.Collections;
 import java.util.HashMap;
