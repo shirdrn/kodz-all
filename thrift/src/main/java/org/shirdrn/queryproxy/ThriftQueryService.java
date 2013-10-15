@@ -11,9 +11,9 @@ import org.apache.thrift.TException;
 import org.shirdrn.queryproxy.common.Configurable;
 import org.shirdrn.queryproxy.thrift.protocol.QueryFailureException;
 import org.shirdrn.queryproxy.thrift.protocol.QueryParams;
+import org.shirdrn.queryproxy.thrift.protocol.QueryProxyService.Iface;
 import org.shirdrn.queryproxy.thrift.protocol.QueryResult;
 import org.shirdrn.queryproxy.thrift.protocol.QueryType;
-import org.shirdrn.queryproxy.thrift.protocol.QueryProxyService.Iface;
 import org.shirdrn.queryproxy.utils.ReflectionUtils;
 
 public class ThriftQueryService implements Iface {
@@ -40,22 +40,12 @@ public class ThriftQueryService implements Iface {
 	
 	@Override
 	public QueryResult query(QueryParams params) throws QueryFailureException, TException {
-		QueryResult result = new QueryResult();
 		int type = params.getTYPE().getValue();
 		Iface service = SERVICES.get(QueryType.findByValue(type));
 		if(service == null) {
 			throw new QueryFailureException("Unknown service: type=" + params.getTYPE().name());
 		}
-		switch(type) {
-			case 1 : // QueryType.SOLR
-				result = service.query(params);
-				break;
-			case 2: // QueryType.SQL
-				break;
-			default:
-					
-		}
-		return result;
+		return service.query(params);
 	}
 
 	public void register(QueryType queryType, Class<?> serviceClass) {
