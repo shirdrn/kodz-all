@@ -80,7 +80,7 @@ public class SolrQueryService extends ConfiguredQueryService {
 		result.setOffset(offset);
 		result.setLength(length);
 		if(response != null) {
-			result.setResults(ResultUtils.extractJSONResults(response));
+			result.setResults(ResultUtils.getJSONResults(response));
 		}
 		return result;
 	}

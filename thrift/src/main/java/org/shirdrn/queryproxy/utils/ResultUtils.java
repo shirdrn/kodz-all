@@ -20,7 +20,7 @@ public class ResultUtils {
 	private static final String KEY_VERSION = "_version_";
 	private static final DateFormat DF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
-	public static List<String> extractJSONResults(QueryResponse response) {
+	public static List<String> getJSONResults(QueryResponse response) {
 		ListIterator<SolrDocument> iter = response.getResults().listIterator();
 		List<String> resultDocs = new ArrayList<String>();
 		while(iter.hasNext()) {
@@ -43,11 +43,15 @@ public class ResultUtils {
 		return resultDocs;
 	}
 	
-	public static List<String> extractJSONResults(ResultSet rs) throws SQLException {
-		List<String> result = new ArrayList<String>();
+	public static List<String> getJSONResults(ResultSet rs, List<String> fields) throws SQLException {
+		List<String> results = new ArrayList<String>();
 		while(rs.next()) {
-			
+			JSONObject jo = new JSONObject();
+			for(String field : fields) {
+				jo.put(field, rs.getObject(field).toString());
+			}
+			results.add(jo.toString());
 		}
-		return result;
+		return results;
 	}
 }
