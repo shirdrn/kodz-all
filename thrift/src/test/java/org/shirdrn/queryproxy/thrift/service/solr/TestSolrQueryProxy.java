@@ -21,7 +21,7 @@ public class TestSolrQueryProxy {
 	@Test
 	public void query() throws QueryFailureException, TException {
 		String host = "server.query-proxy.local";
-		TTransport transport = new TSocket(host, 9933);
+		TTransport transport = new TSocket(host, 9966);
 		TProtocol protocol = new TBinaryProtocol(transport, true, true);
 		transport.open();
 		QueryProxyService.Client client = new QueryProxyService.Client(protocol);
@@ -43,7 +43,4 @@ public class TestSolrQueryProxy {
 		transport.close();
 	}
 	
-	public static void main(String[] args) throws QueryFailureException, TException {
-		new TestSolrQueryProxy().query();
-	}
 }
