@@ -34,22 +34,22 @@ class QueryType:
 class QueryParams:
   """
   Attributes:
-   - TYPE
+   - type
    - table
-   - params
+   - paramList
   """
 
   thrift_spec = (
     None, # 0
-    (1, TType.I32, 'TYPE', None, None, ), # 1
+    (1, TType.I32, 'type', None, None, ), # 1
     (2, TType.STRING, 'table', None, None, ), # 2
-    (3, TType.LIST, 'params', (TType.STRING,None), None, ), # 3
+    (3, TType.LIST, 'paramList', (TType.STRING,None), None, ), # 3
   )
 
-  def __init__(self, TYPE=None, table=None, params=None,):
-    self.TYPE = TYPE
+  def __init__(self, type=None, table=None, paramList=None,):
+    self.type = type
     self.table = table
-    self.params = params
+    self.paramList = paramList
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -62,7 +62,7 @@ class QueryParams:
         break
       if fid == 1:
         if ftype == TType.I32:
-          self.TYPE = iprot.readI32();
+          self.type = iprot.readI32();
         else:
           iprot.skip(ftype)
       elif fid == 2:
@@ -72,11 +72,11 @@ class QueryParams:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.LIST:
-          self.params = []
+          self.paramList = []
           (_etype3, _size0) = iprot.readListBegin()
           for _i4 in xrange(_size0):
             _elem5 = iprot.readString();
-            self.params.append(_elem5)
+            self.paramList.append(_elem5)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -90,18 +90,18 @@ class QueryParams:
       oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
       return
     oprot.writeStructBegin('QueryParams')
-    if self.TYPE is not None:
-      oprot.writeFieldBegin('TYPE', TType.I32, 1)
-      oprot.writeI32(self.TYPE)
+    if self.type is not None:
+      oprot.writeFieldBegin('type', TType.I32, 1)
+      oprot.writeI32(self.type)
       oprot.writeFieldEnd()
     if self.table is not None:
       oprot.writeFieldBegin('table', TType.STRING, 2)
       oprot.writeString(self.table)
       oprot.writeFieldEnd()
-    if self.params is not None:
-      oprot.writeFieldBegin('params', TType.LIST, 3)
-      oprot.writeListBegin(TType.STRING, len(self.params))
-      for iter6 in self.params:
+    if self.paramList is not None:
+      oprot.writeFieldBegin('paramList', TType.LIST, 3)
+      oprot.writeListBegin(TType.STRING, len(self.paramList))
+      for iter6 in self.paramList:
         oprot.writeString(iter6)
       oprot.writeListEnd()
       oprot.writeFieldEnd()

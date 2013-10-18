@@ -18,10 +18,10 @@ except:
 
 
 class Iface:
-  def query(self, params):
+  def query(self, paramList):
     """
     Parameters:
-     - params
+     - paramList
     """
     pass
 
@@ -33,18 +33,18 @@ class Client(Iface):
       self._oprot = oprot
     self._seqid = 0
 
-  def query(self, params):
+  def query(self, paramList):
     """
     Parameters:
-     - params
+     - paramList
     """
-    self.send_query(params)
+    self.send_query(paramList)
     return self.recv_query()
 
-  def send_query(self, params):
+  def send_query(self, paramList):
     self._oprot.writeMessageBegin('query', TMessageType.CALL, self._seqid)
     args = query_args()
-    args.params = params
+    args.paramList = paramList
     args.write(self._oprot)
     self._oprot.writeMessageEnd()
     self._oprot.trans.flush()
@@ -93,7 +93,7 @@ class Processor(Iface, TProcessor):
     iprot.readMessageEnd()
     result = query_result()
     try:
-      result.success = self._handler.query(args.params)
+      result.success = self._handler.query(args.paramList)
     except QueryFailureException as qe:
       result.qe = qe
     oprot.writeMessageBegin("query", TMessageType.REPLY, seqid)
@@ -107,16 +107,16 @@ class Processor(Iface, TProcessor):
 class query_args:
   """
   Attributes:
-   - params
+   - paramList
   """
 
   thrift_spec = (
     None, # 0
-    (1, TType.STRUCT, 'params', (QueryParams, QueryParams.thrift_spec), None, ), # 1
+    (1, TType.STRUCT, 'paramList', (QueryParams, QueryParams.thrift_spec), None, ), # 1
   )
 
-  def __init__(self, params=None,):
-    self.params = params
+  def __init__(self, paramList=None,):
+    self.paramList = paramList
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -129,8 +129,8 @@ class query_args:
         break
       if fid == 1:
         if ftype == TType.STRUCT:
-          self.params = QueryParams()
-          self.params.read(iprot)
+          self.paramList = QueryParams()
+          self.paramList.read(iprot)
         else:
           iprot.skip(ftype)
       else:
@@ -143,9 +143,9 @@ class query_args:
       oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
       return
     oprot.writeStructBegin('query_args')
-    if self.params is not None:
-      oprot.writeFieldBegin('params', TType.STRUCT, 1)
-      self.params.write(oprot)
+    if self.paramList is not None:
+      oprot.writeFieldBegin('paramList', TType.STRUCT, 1)
+      self.paramList.write(oprot)
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
