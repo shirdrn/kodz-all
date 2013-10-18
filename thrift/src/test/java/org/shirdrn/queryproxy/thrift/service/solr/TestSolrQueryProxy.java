@@ -28,13 +28,13 @@ public class TestSolrQueryProxy {
 		
 		QueryParams params = new QueryParams();
 		params.setTable("collection1");
-		params.setTYPE(QueryType.SOLR);
-		params.addToParams("q=上海");
-		params.addToParams("fl=*");
-		params.addToParams("fq=building_type:1");
-		params.addToParams("start=50");
-		params.addToParams("rows=10");
-		params.addToParams("wt=json");
+		params.setType(QueryType.SOLR);
+		params.addToParamList("q=上海");
+		params.addToParamList("fl=*");
+		params.addToParamList("fq=building_type:1");
+		params.addToParamList("start=50");
+		params.addToParamList("rows=10");
+		params.addToParamList("wt=json");
 		
 		QueryResult result = client.query(params);
 		LOG.info("offset=" + result.getOffset());

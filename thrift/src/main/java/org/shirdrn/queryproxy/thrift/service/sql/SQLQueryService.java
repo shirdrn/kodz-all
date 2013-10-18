@@ -47,16 +47,16 @@ public class SQLQueryService extends ConfiguredQueryService {
 	@Override
 	public QueryResult query(QueryParams params) throws QueryFailureException, TException {
 		QueryResult result = new QueryResult();
-		if(!params.getParams().isEmpty()) {
+		if(!params.getParamList().isEmpty()) {
 			// get SQL statement
-			String sql = params.getParams().remove(0);
+			String sql = params.getParamList().remove(0);
 			Connection conn = getConnection();
 			Statement stmt = null;
 			ResultSet rs = null;
 			try {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
-				result.setResults(ResultUtils.getJSONResults(rs, params.getParams()));
+				result.setResults(ResultUtils.getJSONResults(rs, params.getParamList()));
 			} catch (SQLException e) {
 				throw new QueryFailureException(e.toString());
 			}

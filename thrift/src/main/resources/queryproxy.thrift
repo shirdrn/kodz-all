@@ -1,5 +1,6 @@
 namespace java org.shirdrn.queryproxy.thrift.protocol
-namespace py org.shirdrn.queryproxy.thrift.python.protocol
+namespace csharp Query.Proxy.Thrift.Protocol
+namespace py queryproxy.thrift.protocol
 
 typedef i16 short
 typedef i32 int
@@ -11,9 +12,9 @@ enum QueryType {
 }
 
 struct QueryParams {
-	1:QueryType TYPE,
+	1:QueryType type,
 	2:string table,
-	3:list<string> params
+	3:list<string> paramList
 }
 
 struct QueryResult {
@@ -28,6 +29,6 @@ exception QueryFailureException {
 
 service QueryProxyService {
 
-	QueryResult query(1:QueryParams params) throws (1:QueryFailureException qe)
+	QueryResult query(1:QueryParams paramList) throws (1:QueryFailureException qe)
 	
 }

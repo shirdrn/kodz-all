@@ -34,7 +34,7 @@ public class QueryProxyServer {
 	}
 	
 	public void startUp() throws TTransportException {
-		int port = context.getInt("query.proxy.thrift.port", 9933);
+		int port = context.getInt("query.proxy.thrift.port", 9966);
 		LOG.info("Thrift service port: port=" + port);
 		TServerSocket serverTransport = new TServerSocket(port);
 		

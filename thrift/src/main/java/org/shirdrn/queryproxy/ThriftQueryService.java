@@ -40,10 +40,10 @@ public class ThriftQueryService implements Iface {
 	
 	@Override
 	public QueryResult query(QueryParams params) throws QueryFailureException, TException {
-		int type = params.getTYPE().getValue();
+		int type = params.getType().getValue();
 		Iface service = SERVICES.get(QueryType.findByValue(type));
 		if(service == null) {
-			throw new QueryFailureException("Unknown service: type=" + params.getTYPE().name());
+			throw new QueryFailureException("Unknown service: type=" + params.getType().name());
 		}
 		return service.query(params);
 	}

@@ -34,13 +34,13 @@ public class QueryProxyService {
 
   public interface Iface {
 
-    public QueryResult query(QueryParams params) throws QueryFailureException, org.apache.thrift.TException;
+    public QueryResult query(QueryParams paramList) throws QueryFailureException, org.apache.thrift.TException;
 
   }
 
   public interface AsyncIface {
 
-    public void query(QueryParams params, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.query_call> resultHandler) throws org.apache.thrift.TException;
+    public void query(QueryParams paramList, org.apache.thrift.async.AsyncMethodCallback<AsyncClient.query_call> resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -64,16 +64,16 @@ public class QueryProxyService {
       super(iprot, oprot);
     }
 
-    public QueryResult query(QueryParams params) throws QueryFailureException, org.apache.thrift.TException
+    public QueryResult query(QueryParams paramList) throws QueryFailureException, org.apache.thrift.TException
     {
-      send_query(params);
+      send_query(paramList);
       return recv_query();
     }
 
-    public void send_query(QueryParams params) throws org.apache.thrift.TException
+    public void send_query(QueryParams paramList) throws org.apache.thrift.TException
     {
       query_args args = new query_args();
-      args.setParams(params);
+      args.setParamList(paramList);
       sendBase("query", args);
     }
 
@@ -108,24 +108,24 @@ public class QueryProxyService {
       super(protocolFactory, clientManager, transport);
     }
 
-    public void query(QueryParams params, org.apache.thrift.async.AsyncMethodCallback<query_call> resultHandler) throws org.apache.thrift.TException {
+    public void query(QueryParams paramList, org.apache.thrift.async.AsyncMethodCallback<query_call> resultHandler) throws org.apache.thrift.TException {
       checkReady();
-      query_call method_call = new query_call(params, resultHandler, this, ___protocolFactory, ___transport);
+      query_call method_call = new query_call(paramList, resultHandler, this, ___protocolFactory, ___transport);
       this.___currentMethod = method_call;
       ___manager.call(method_call);
     }
 
     public static class query_call extends org.apache.thrift.async.TAsyncMethodCall {
-      private QueryParams params;
-      public query_call(QueryParams params, org.apache.thrift.async.AsyncMethodCallback<query_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+      private QueryParams paramList;
+      public query_call(QueryParams paramList, org.apache.thrift.async.AsyncMethodCallback<query_call> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
         super(client, protocolFactory, transport, resultHandler, false);
-        this.params = params;
+        this.paramList = paramList;
       }
 
       public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
         prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("query", org.apache.thrift.protocol.TMessageType.CALL, 0));
         query_args args = new query_args();
-        args.setParams(params);
+        args.setParamList(paramList);
         args.write(prot);
         prot.writeMessageEnd();
       }
@@ -173,7 +173,7 @@ public class QueryProxyService {
       public query_result getResult(I iface, query_args args) throws org.apache.thrift.TException {
         query_result result = new query_result();
         try {
-          result.success = iface.query(args.params);
+          result.success = iface.query(args.paramList);
         } catch (QueryFailureException qe) {
           result.qe = qe;
         }
@@ -186,7 +186,7 @@ public class QueryProxyService {
   public static class query_args implements org.apache.thrift.TBase<query_args, query_args._Fields>, java.io.Serializable, Cloneable   {
     private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("query_args");
 
-    private static final org.apache.thrift.protocol.TField PARAMS_FIELD_DESC = new org.apache.thrift.protocol.TField("params", org.apache.thrift.protocol.TType.STRUCT, (short)1);
+    private static final org.apache.thrift.protocol.TField PARAM_LIST_FIELD_DESC = new org.apache.thrift.protocol.TField("paramList", org.apache.thrift.protocol.TType.STRUCT, (short)1);
 
     private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
     static {
@@ -194,11 +194,11 @@ public class QueryProxyService {
       schemes.put(TupleScheme.class, new query_argsTupleSchemeFactory());
     }
 
-    public QueryParams params; // required
+    public QueryParams paramList; // required
 
     /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
     public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-      PARAMS((short)1, "params");
+      PARAM_LIST((short)1, "paramList");
 
       private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -213,8 +213,8 @@ public class QueryProxyService {
        */
       public static _Fields findByThriftId(int fieldId) {
         switch(fieldId) {
-          case 1: // PARAMS
-            return PARAMS;
+          case 1: // PARAM_LIST
+            return PARAM_LIST;
           default:
             return null;
         }
@@ -258,7 +258,7 @@ public class QueryProxyService {
     public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
     static {
       Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-      tmpMap.put(_Fields.PARAMS, new org.apache.thrift.meta_data.FieldMetaData("params", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+      tmpMap.put(_Fields.PARAM_LIST, new org.apache.thrift.meta_data.FieldMetaData("paramList", org.apache.thrift.TFieldRequirementType.DEFAULT, 
           new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, QueryParams.class)));
       metaDataMap = Collections.unmodifiableMap(tmpMap);
       org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(query_args.class, metaDataMap);
@@ -268,18 +268,18 @@ public class QueryProxyService {
     }
 
     public query_args(
-      QueryParams params)
+      QueryParams paramList)
     {
       this();
-      this.params = params;
+      this.paramList = paramList;
     }
 
     /**
      * Performs a deep copy on <i>other</i>.
      */
     public query_args(query_args other) {
-      if (other.isSetParams()) {
-        this.params = new QueryParams(other.params);
+      if (other.isSetParamList()) {
+        this.paramList = new QueryParams(other.paramList);
       }
     }
 
@@ -289,40 +289,40 @@ public class QueryProxyService {
 
     @Override
     public void clear() {
-      this.params = null;
+      this.paramList = null;
     }
 
-    public QueryParams getParams() {
-      return this.params;
+    public QueryParams getParamList() {
+      return this.paramList;
     }
 
-    public query_args setParams(QueryParams params) {
-      this.params = params;
+    public query_args setParamList(QueryParams paramList) {
+      this.paramList = paramList;
       return this;
     }
 
-    public void unsetParams() {
-      this.params = null;
+    public void unsetParamList() {
+      this.paramList = null;
     }
 
-    /** Returns true if field params is set (has been assigned a value) and false otherwise */
-    public boolean isSetParams() {
-      return this.params != null;
+    /** Returns true if field paramList is set (has been assigned a value) and false otherwise */
+    public boolean isSetParamList() {
+      return this.paramList != null;
     }
 
-    public void setParamsIsSet(boolean value) {
+    public void setParamListIsSet(boolean value) {
       if (!value) {
-        this.params = null;
+        this.paramList = null;
       }
     }
 
     public void setFieldValue(_Fields field, Object value) {
       switch (field) {
-      case PARAMS:
+      case PARAM_LIST:
         if (value == null) {
-          unsetParams();
+          unsetParamList();
         } else {
-          setParams((QueryParams)value);
+          setParamList((QueryParams)value);
         }
         break;
 
@@ -331,8 +331,8 @@ public class QueryProxyService {
 
     public Object getFieldValue(_Fields field) {
       switch (field) {
-      case PARAMS:
-        return getParams();
+      case PARAM_LIST:
+        return getParamList();
 
       }
       throw new IllegalStateException();
@@ -345,8 +345,8 @@ public class QueryProxyService {
       }
 
       switch (field) {
-      case PARAMS:
-        return isSetParams();
+      case PARAM_LIST:
+        return isSetParamList();
       }
       throw new IllegalStateException();
     }
@@ -364,12 +364,12 @@ public class QueryProxyService {
       if (that == null)
         return false;
 
-      boolean this_present_params = true && this.isSetParams();
-      boolean that_present_params = true && that.isSetParams();
-      if (this_present_params || that_present_params) {
-        if (!(this_present_params && that_present_params))
+      boolean this_present_paramList = true && this.isSetParamList();
+      boolean that_present_paramList = true && that.isSetParamList();
+      if (this_present_paramList || that_present_paramList) {
+        if (!(this_present_paramList && that_present_paramList))
           return false;
-        if (!this.params.equals(that.params))
+        if (!this.paramList.equals(that.paramList))
           return false;
       }
 
@@ -389,12 +389,12 @@ public class QueryProxyService {
       int lastComparison = 0;
       query_args typedOther = (query_args)other;
 
-      lastComparison = Boolean.valueOf(isSetParams()).compareTo(typedOther.isSetParams());
+      lastComparison = Boolean.valueOf(isSetParamList()).compareTo(typedOther.isSetParamList());
       if (lastComparison != 0) {
         return lastComparison;
       }
-      if (isSetParams()) {
-        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.params, typedOther.params);
+      if (isSetParamList()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.paramList, typedOther.paramList);
         if (lastComparison != 0) {
           return lastComparison;
         }
@@ -419,11 +419,11 @@ public class QueryProxyService {
       StringBuilder sb = new StringBuilder("query_args(");
       boolean first = true;
 
-      sb.append("params:");
-      if (this.params == null) {
+      sb.append("paramList:");
+      if (this.paramList == null) {
         sb.append("null");
       } else {
-        sb.append(this.params);
+        sb.append(this.paramList);
       }
       first = false;
       sb.append(")");
@@ -433,8 +433,8 @@ public class QueryProxyService {
     public void validate() throws org.apache.thrift.TException {
       // check for required fields
       // check for sub-struct validity
-      if (params != null) {
-        params.validate();
+      if (paramList != null) {
+        paramList.validate();
       }
     }
 
@@ -472,11 +472,11 @@ public class QueryProxyService {
             break;
           }
           switch (schemeField.id) {
-            case 1: // PARAMS
+            case 1: // PARAM_LIST
               if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
-                struct.params = new QueryParams();
-                struct.params.read(iprot);
-                struct.setParamsIsSet(true);
+                struct.paramList = new QueryParams();
+                struct.paramList.read(iprot);
+                struct.setParamListIsSet(true);
               } else { 
                 org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
               }
@@ -496,9 +496,9 @@ public class QueryProxyService {
         struct.validate();
 
         oprot.writeStructBegin(STRUCT_DESC);
-        if (struct.params != null) {
-          oprot.writeFieldBegin(PARAMS_FIELD_DESC);
-          struct.params.write(oprot);
+        if (struct.paramList != null) {
+          oprot.writeFieldBegin(PARAM_LIST_FIELD_DESC);
+          struct.paramList.write(oprot);
           oprot.writeFieldEnd();
         }
         oprot.writeFieldStop();
@@ -519,12 +519,12 @@ public class QueryProxyService {
       public void write(org.apache.thrift.protocol.TProtocol prot, query_args struct) throws org.apache.thrift.TException {
         TTupleProtocol oprot = (TTupleProtocol) prot;
         BitSet optionals = new BitSet();
-        if (struct.isSetParams()) {
+        if (struct.isSetParamList()) {
           optionals.set(0);
         }
         oprot.writeBitSet(optionals, 1);
-        if (struct.isSetParams()) {
-          struct.params.write(oprot);
+        if (struct.isSetParamList()) {
+          struct.paramList.write(oprot);
         }
       }
 
@@ -533,9 +533,9 @@ public class QueryProxyService {
         TTupleProtocol iprot = (TTupleProtocol) prot;
         BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
-          struct.params = new QueryParams();
-          struct.params.read(iprot);
-          struct.setParamsIsSet(true);
+          struct.paramList = new QueryParams();
+          struct.paramList.read(iprot);
+          struct.setParamListIsSet(true);
         }
       }
     }

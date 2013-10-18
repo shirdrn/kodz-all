@@ -43,7 +43,7 @@ public class SolrQueryService extends ConfiguredQueryService {
 		int offset = 0;
 		int length = 10;
 		Map<String,String> map = new HashMap<>();
-		Iterator<String> iter = params.getParamsIterator();
+		Iterator<String> iter = params.getParamListIterator();
 		while(iter.hasNext()) {
 			String kv = iter.next();
 			if(kv != null) {

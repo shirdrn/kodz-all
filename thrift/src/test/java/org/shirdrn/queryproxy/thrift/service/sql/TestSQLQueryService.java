@@ -28,10 +28,10 @@ private static final Log LOG = LogFactory.getLog(TestSQLQueryService.class);
 		
 		QueryParams params = new QueryParams();
 		params.setTable("wp_posts");
-		params.setTYPE(QueryType.SQL);
-		params.addToParams("select id, post_author from wordpress.wp_posts");
-		params.addToParams("id");
-		params.addToParams("post_author");
+		params.setType(QueryType.SQL);
+		params.addToParamList("select id, post_author from wordpress.wp_posts");
+		params.addToParamList("id");
+		params.addToParamList("post_author");
 		
 		QueryResult result = client.query(params);
 		LOG.info("result=" + result.getResults());

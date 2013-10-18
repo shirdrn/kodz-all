@@ -33,9 +33,9 @@ import org.slf4j.LoggerFactory;
 public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryParams._Fields>, java.io.Serializable, Cloneable {
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("QueryParams");
 
-  private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("TYPE", org.apache.thrift.protocol.TType.I32, (short)1);
+  private static final org.apache.thrift.protocol.TField TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.I32, (short)1);
   private static final org.apache.thrift.protocol.TField TABLE_FIELD_DESC = new org.apache.thrift.protocol.TField("table", org.apache.thrift.protocol.TType.STRING, (short)2);
-  private static final org.apache.thrift.protocol.TField PARAMS_FIELD_DESC = new org.apache.thrift.protocol.TField("params", org.apache.thrift.protocol.TType.LIST, (short)3);
+  private static final org.apache.thrift.protocol.TField PARAM_LIST_FIELD_DESC = new org.apache.thrift.protocol.TField("paramList", org.apache.thrift.protocol.TType.LIST, (short)3);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -47,9 +47,9 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
    * 
    * @see QueryType
    */
-  public QueryType TYPE; // required
+  public QueryType type; // required
   public String table; // required
-  public List<String> params; // required
+  public List<String> paramList; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
@@ -57,9 +57,9 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
      * 
      * @see QueryType
      */
-    TYPE((short)1, "TYPE"),
+    TYPE((short)1, "type"),
     TABLE((short)2, "table"),
-    PARAMS((short)3, "params");
+    PARAM_LIST((short)3, "paramList");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -78,8 +78,8 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
           return TYPE;
         case 2: // TABLE
           return TABLE;
-        case 3: // PARAMS
-          return PARAMS;
+        case 3: // PARAM_LIST
+          return PARAM_LIST;
         default:
           return null;
       }
@@ -123,11 +123,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
   public static final Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
-    tmpMap.put(_Fields.TYPE, new org.apache.thrift.meta_data.FieldMetaData("TYPE", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+    tmpMap.put(_Fields.TYPE, new org.apache.thrift.meta_data.FieldMetaData("type", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, QueryType.class)));
     tmpMap.put(_Fields.TABLE, new org.apache.thrift.meta_data.FieldMetaData("table", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
-    tmpMap.put(_Fields.PARAMS, new org.apache.thrift.meta_data.FieldMetaData("params", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+    tmpMap.put(_Fields.PARAM_LIST, new org.apache.thrift.meta_data.FieldMetaData("paramList", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.ListMetaData(org.apache.thrift.protocol.TType.LIST, 
             new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING))));
     metaDataMap = Collections.unmodifiableMap(tmpMap);
@@ -138,32 +138,32 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
   }
 
   public QueryParams(
-    QueryType TYPE,
+    QueryType type,
     String table,
-    List<String> params)
+    List<String> paramList)
   {
     this();
-    this.TYPE = TYPE;
+    this.type = type;
     this.table = table;
-    this.params = params;
+    this.paramList = paramList;
   }
 
   /**
    * Performs a deep copy on <i>other</i>.
    */
   public QueryParams(QueryParams other) {
-    if (other.isSetTYPE()) {
-      this.TYPE = other.TYPE;
+    if (other.isSetType()) {
+      this.type = other.type;
     }
     if (other.isSetTable()) {
       this.table = other.table;
     }
-    if (other.isSetParams()) {
-      List<String> __this__params = new ArrayList<String>();
-      for (String other_element : other.params) {
-        __this__params.add(other_element);
+    if (other.isSetParamList()) {
+      List<String> __this__paramList = new ArrayList<String>();
+      for (String other_element : other.paramList) {
+        __this__paramList.add(other_element);
       }
-      this.params = __this__params;
+      this.paramList = __this__paramList;
     }
   }
 
@@ -173,40 +173,40 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
 
   @Override
   public void clear() {
-    this.TYPE = null;
+    this.type = null;
     this.table = null;
-    this.params = null;
+    this.paramList = null;
   }
 
   /**
    * 
    * @see QueryType
    */
-  public QueryType getTYPE() {
-    return this.TYPE;
+  public QueryType getType() {
+    return this.type;
   }
 
   /**
    * 
    * @see QueryType
    */
-  public QueryParams setTYPE(QueryType TYPE) {
-    this.TYPE = TYPE;
+  public QueryParams setType(QueryType type) {
+    this.type = type;
     return this;
   }
 
-  public void unsetTYPE() {
-    this.TYPE = null;
+  public void unsetType() {
+    this.type = null;
   }
 
-  /** Returns true if field TYPE is set (has been assigned a value) and false otherwise */
-  public boolean isSetTYPE() {
-    return this.TYPE != null;
+  /** Returns true if field type is set (has been assigned a value) and false otherwise */
+  public boolean isSetType() {
+    return this.type != null;
   }
 
-  public void setTYPEIsSet(boolean value) {
+  public void setTypeIsSet(boolean value) {
     if (!value) {
-      this.TYPE = null;
+      this.type = null;
     }
   }
 
@@ -234,42 +234,42 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     }
   }
 
-  public int getParamsSize() {
-    return (this.params == null) ? 0 : this.params.size();
+  public int getParamListSize() {
+    return (this.paramList == null) ? 0 : this.paramList.size();
   }
 
-  public java.util.Iterator<String> getParamsIterator() {
-    return (this.params == null) ? null : this.params.iterator();
+  public java.util.Iterator<String> getParamListIterator() {
+    return (this.paramList == null) ? null : this.paramList.iterator();
   }
 
-  public void addToParams(String elem) {
-    if (this.params == null) {
-      this.params = new ArrayList<String>();
+  public void addToParamList(String elem) {
+    if (this.paramList == null) {
+      this.paramList = new ArrayList<String>();
     }
-    this.params.add(elem);
+    this.paramList.add(elem);
   }
 
-  public List<String> getParams() {
-    return this.params;
+  public List<String> getParamList() {
+    return this.paramList;
   }
 
-  public QueryParams setParams(List<String> params) {
-    this.params = params;
+  public QueryParams setParamList(List<String> paramList) {
+    this.paramList = paramList;
     return this;
   }
 
-  public void unsetParams() {
-    this.params = null;
+  public void unsetParamList() {
+    this.paramList = null;
   }
 
-  /** Returns true if field params is set (has been assigned a value) and false otherwise */
-  public boolean isSetParams() {
-    return this.params != null;
+  /** Returns true if field paramList is set (has been assigned a value) and false otherwise */
+  public boolean isSetParamList() {
+    return this.paramList != null;
   }
 
-  public void setParamsIsSet(boolean value) {
+  public void setParamListIsSet(boolean value) {
     if (!value) {
-      this.params = null;
+      this.paramList = null;
     }
   }
 
@@ -277,9 +277,9 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     switch (field) {
     case TYPE:
       if (value == null) {
-        unsetTYPE();
+        unsetType();
       } else {
-        setTYPE((QueryType)value);
+        setType((QueryType)value);
       }
       break;
 
@@ -291,11 +291,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
       }
       break;
 
-    case PARAMS:
+    case PARAM_LIST:
       if (value == null) {
-        unsetParams();
+        unsetParamList();
       } else {
-        setParams((List<String>)value);
+        setParamList((List<String>)value);
       }
       break;
 
@@ -305,13 +305,13 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
   public Object getFieldValue(_Fields field) {
     switch (field) {
     case TYPE:
-      return getTYPE();
+      return getType();
 
     case TABLE:
       return getTable();
 
-    case PARAMS:
-      return getParams();
+    case PARAM_LIST:
+      return getParamList();
 
     }
     throw new IllegalStateException();
@@ -325,11 +325,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
 
     switch (field) {
     case TYPE:
-      return isSetTYPE();
+      return isSetType();
     case TABLE:
       return isSetTable();
-    case PARAMS:
-      return isSetParams();
+    case PARAM_LIST:
+      return isSetParamList();
     }
     throw new IllegalStateException();
   }
@@ -347,12 +347,12 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     if (that == null)
       return false;
 
-    boolean this_present_TYPE = true && this.isSetTYPE();
-    boolean that_present_TYPE = true && that.isSetTYPE();
-    if (this_present_TYPE || that_present_TYPE) {
-      if (!(this_present_TYPE && that_present_TYPE))
+    boolean this_present_type = true && this.isSetType();
+    boolean that_present_type = true && that.isSetType();
+    if (this_present_type || that_present_type) {
+      if (!(this_present_type && that_present_type))
         return false;
-      if (!this.TYPE.equals(that.TYPE))
+      if (!this.type.equals(that.type))
         return false;
     }
 
@@ -365,12 +365,12 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
         return false;
     }
 
-    boolean this_present_params = true && this.isSetParams();
-    boolean that_present_params = true && that.isSetParams();
-    if (this_present_params || that_present_params) {
-      if (!(this_present_params && that_present_params))
+    boolean this_present_paramList = true && this.isSetParamList();
+    boolean that_present_paramList = true && that.isSetParamList();
+    if (this_present_paramList || that_present_paramList) {
+      if (!(this_present_paramList && that_present_paramList))
         return false;
-      if (!this.params.equals(that.params))
+      if (!this.paramList.equals(that.paramList))
         return false;
     }
 
@@ -390,12 +390,12 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     int lastComparison = 0;
     QueryParams typedOther = (QueryParams)other;
 
-    lastComparison = Boolean.valueOf(isSetTYPE()).compareTo(typedOther.isSetTYPE());
+    lastComparison = Boolean.valueOf(isSetType()).compareTo(typedOther.isSetType());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetTYPE()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.TYPE, typedOther.TYPE);
+    if (isSetType()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.type, typedOther.type);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -410,12 +410,12 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
         return lastComparison;
       }
     }
-    lastComparison = Boolean.valueOf(isSetParams()).compareTo(typedOther.isSetParams());
+    lastComparison = Boolean.valueOf(isSetParamList()).compareTo(typedOther.isSetParamList());
     if (lastComparison != 0) {
       return lastComparison;
     }
-    if (isSetParams()) {
-      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.params, typedOther.params);
+    if (isSetParamList()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.paramList, typedOther.paramList);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -440,11 +440,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     StringBuilder sb = new StringBuilder("QueryParams(");
     boolean first = true;
 
-    sb.append("TYPE:");
-    if (this.TYPE == null) {
+    sb.append("type:");
+    if (this.type == null) {
       sb.append("null");
     } else {
-      sb.append(this.TYPE);
+      sb.append(this.type);
     }
     first = false;
     if (!first) sb.append(", ");
@@ -456,11 +456,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     }
     first = false;
     if (!first) sb.append(", ");
-    sb.append("params:");
-    if (this.params == null) {
+    sb.append("paramList:");
+    if (this.paramList == null) {
       sb.append("null");
     } else {
-      sb.append(this.params);
+      sb.append(this.paramList);
     }
     first = false;
     sb.append(")");
@@ -508,8 +508,8 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
         switch (schemeField.id) {
           case 1: // TYPE
             if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
-              struct.TYPE = QueryType.findByValue(iprot.readI32());
-              struct.setTYPEIsSet(true);
+              struct.type = QueryType.findByValue(iprot.readI32());
+              struct.setTypeIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
@@ -522,20 +522,20 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 3: // PARAMS
+          case 3: // PARAM_LIST
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
-                struct.params = new ArrayList<String>(_list0.size);
+                struct.paramList = new ArrayList<String>(_list0.size);
                 for (int _i1 = 0; _i1 < _list0.size; ++_i1)
                 {
                   String _elem2; // required
                   _elem2 = iprot.readString();
-                  struct.params.add(_elem2);
+                  struct.paramList.add(_elem2);
                 }
                 iprot.readListEnd();
               }
-              struct.setParamsIsSet(true);
+              struct.setParamListIsSet(true);
             } else { 
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
@@ -555,9 +555,9 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
-      if (struct.TYPE != null) {
+      if (struct.type != null) {
         oprot.writeFieldBegin(TYPE_FIELD_DESC);
-        oprot.writeI32(struct.TYPE.getValue());
+        oprot.writeI32(struct.type.getValue());
         oprot.writeFieldEnd();
       }
       if (struct.table != null) {
@@ -565,11 +565,11 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
         oprot.writeString(struct.table);
         oprot.writeFieldEnd();
       }
-      if (struct.params != null) {
-        oprot.writeFieldBegin(PARAMS_FIELD_DESC);
+      if (struct.paramList != null) {
+        oprot.writeFieldBegin(PARAM_LIST_FIELD_DESC);
         {
-          oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.params.size()));
-          for (String _iter3 : struct.params)
+          oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.paramList.size()));
+          for (String _iter3 : struct.paramList)
           {
             oprot.writeString(_iter3);
           }
@@ -595,26 +595,26 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
     public void write(org.apache.thrift.protocol.TProtocol prot, QueryParams struct) throws org.apache.thrift.TException {
       TTupleProtocol oprot = (TTupleProtocol) prot;
       BitSet optionals = new BitSet();
-      if (struct.isSetTYPE()) {
+      if (struct.isSetType()) {
         optionals.set(0);
       }
       if (struct.isSetTable()) {
         optionals.set(1);
       }
-      if (struct.isSetParams()) {
+      if (struct.isSetParamList()) {
         optionals.set(2);
       }
       oprot.writeBitSet(optionals, 3);
-      if (struct.isSetTYPE()) {
-        oprot.writeI32(struct.TYPE.getValue());
+      if (struct.isSetType()) {
+        oprot.writeI32(struct.type.getValue());
       }
       if (struct.isSetTable()) {
         oprot.writeString(struct.table);
       }
-      if (struct.isSetParams()) {
+      if (struct.isSetParamList()) {
         {
-          oprot.writeI32(struct.params.size());
-          for (String _iter4 : struct.params)
+          oprot.writeI32(struct.paramList.size());
+          for (String _iter4 : struct.paramList)
           {
             oprot.writeString(_iter4);
           }
@@ -627,8 +627,8 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
       TTupleProtocol iprot = (TTupleProtocol) prot;
       BitSet incoming = iprot.readBitSet(3);
       if (incoming.get(0)) {
-        struct.TYPE = QueryType.findByValue(iprot.readI32());
-        struct.setTYPEIsSet(true);
+        struct.type = QueryType.findByValue(iprot.readI32());
+        struct.setTypeIsSet(true);
       }
       if (incoming.get(1)) {
         struct.table = iprot.readString();
@@ -637,15 +637,15 @@ public class QueryParams implements org.apache.thrift.TBase<QueryParams, QueryPa
       if (incoming.get(2)) {
         {
           org.apache.thrift.protocol.TList _list5 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
-          struct.params = new ArrayList<String>(_list5.size);
+          struct.paramList = new ArrayList<String>(_list5.size);
           for (int _i6 = 0; _i6 < _list5.size; ++_i6)
           {
             String _elem7; // required
             _elem7 = iprot.readString();
-            struct.params.add(_elem7);
+            struct.paramList.add(_elem7);
           }
         }
-        struct.setParamsIsSet(true);
+        struct.setParamListIsSet(true);
       }
     }
   }
