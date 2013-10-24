@@ -20,6 +20,7 @@
 		<module>dbpool</module>
 		<module>thrift</module>
 		<module>tuscany</module>
+		<module>druid</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
