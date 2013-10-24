@@ -1,6 +1,0 @@
-
-hadoop jar solr-platform-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.shirdrn.solr.cloud.IndexingManager 1 solr-cloud/data
-java -jar solr-platform-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.shirdrn.solr.cloud.IndexingManager 2 slave1:2188 10000 30000 1000 i_event /home/hadoop/shiyanjun/jobs/solr-platform/schema-mapping-i_event.xml jdbc:hive2://slave1:21050/default/\;auth=noSasl v_i_event net_type=1 limit 5000
-java -jar solr-platform-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.shirdrn.solr.cloud.IndexingManager 3 slave1:2188 10000 30000 100 15 i_event /home/hadoop/shiyanjun/jobs/solr-platform/schema-mapping-i_event.xml jdbc:hive2://slave1:21050/default/\;auth=noSasl v_i_event net_type=1 limit 5000
-java -jar solr-platform-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.shirdrn.solr.cloud.IndexingManager 4 slave1:2188 10000 30000 1000 tinycollection /home/hadoop/shiyanjun/jobs/solr-platform/schema-mapping.xml /home/hadoop/shiyanjun/jobs/solr-platform/data
-java -jar solr-platform-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.shirdrn.solr.cloud.IndexingManager 5 slave1:2188 10000 30000 1000 15 tinycollection /home/hadoop/shiyanjun/jobs/solr-platform/schema-mapping.xml /home/hadoop/shiyanjun/jobs/solr-platform/data
