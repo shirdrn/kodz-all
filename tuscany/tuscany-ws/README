@@ -1,0 +1,37 @@
+
+1. Define src/main/resources/search.ws.composite;
+2. Publish web service(WSDL) in 'TestWsSolrSearchService' using Tuscany;
+3. Generate java codes from WSDL(http://tuscany.server.shiyanjun.cn:8080/solrSearchComponent/SolrSearchService?wsdl):
+   (1) Configure maven pom.xml
+   	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.7.7</version>
+				<executions>
+					<execution>
+						<configuration>
+							<sourceRoot>
+								${basedir}/target/generated-sources
+							</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>
+										http://tuscany.server.shiyanjun.cn:8080/solrSearchComponent/SolrSearchService?wsdl
+									</wsdl>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+   (2) Run command: 'mvn generate-sources', see example WSDL file '\src\main\resources\search.wsdl.xml'
+   (3) Copy codes from '${basedir}/target/generated-sources'
+4. Write web service client to invoke published service in 'TestWsSolrSearchService'.
+5. Run client to return result.
