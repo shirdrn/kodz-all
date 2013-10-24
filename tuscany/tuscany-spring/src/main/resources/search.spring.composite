@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<composite xmlns="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+           xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.1"
+           targetNamespace="http://shiyanjun.cn"
+           name="search-contribution">
+
+    <component name="solrSearchComponent">
+        <implementation.spring location="spring-context.xml"/>
+    </component>
+
+</composite>

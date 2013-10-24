@@ -18,6 +18,7 @@
 		<module>tuscany-common</module>
 		<module>tuscany-jaxrs</module>
 		<module>tuscany-ws</module>
+		<module>tuscany-spring</module>
 	</modules>
 
 	<dependencies>
