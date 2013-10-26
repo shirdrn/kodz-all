@@ -9,13 +9,10 @@
 		<module>mina</module>
 		<module>netty</module>
 		<module>disruptor</module>
-		<module>data-mining</module>
 		<module>mahout</module>
 		<module>hbase</module>
 		<module>dubbo</module>
 		<module>dbpool</module>
-		<module>thrift</module>
-		<module>tuscany</module>
 		<module>druid</module>
 	</modules>
 	<properties>
